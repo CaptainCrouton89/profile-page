@@ -1,0 +1,17 @@
+/* Mobile responsive: left-aligned on screens < 768px */
+@media (max-width: 768px) {
+  .timelineLine {
+    left: 0 !important;
+  }
+
+  .timelineItemWrapper {
+    justify-content: flex-start !important;
+    padding-left: 1.5rem !important;
+    padding-right: 0 !important;
+  }
+
+  .timelineDot {
+    left: 0 !important;
+    transform: translateX(-50%) !important;
+  }
+}

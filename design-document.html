@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Design System - Neo-Brutalist Toxic Orange</title>
+    <style>
+        /* ====================================
+           CSS VARIABLES - DESIGN TOKENS
+           ==================================== */
+        :root {
+            /* COLORS - Toxic Orange Neo-Brutalism */
+            --color-primary: #FF6B00;        /* Toxic orange - main accent */
+            --color-primary-dark: #CC5500;   /* Darker orange for hover states */
+            --color-background: #0A0A0A;     /* Near-black background */
+            --color-surface: #1A1A1A;        /* Slightly lighter black for surfaces */
+            --color-gray-dark: #333333;      /* Dark concrete gray */
+            --color-gray-mid: #666666;       /* Mid concrete gray */
+            --color-gray-light: #999999;     /* Light gray for subtle text */
+            --color-white: #FFFFFF;          /* Stark white for text */
+            --color-black: #000000;          /* Pure black for borders */
+
+            /* TYPOGRAPHY - Chunky Sans */
+            --font-primary: 'Space Grotesk', 'Work Sans', 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+            --font-size-xs: 0.75rem;    /* 12px */
+            --font-size-sm: 0.875rem;   /* 14px */
+            --font-size-base: 1rem;     /* 16px */
+            --font-size-lg: 1.125rem;   /* 18px */
+            --font-size-xl: 1.5rem;     /* 24px */
+            --font-size-2xl: 2rem;      /* 32px */
+            --font-size-3xl: 2.5rem;    /* 40px */
+            --font-size-4xl: 3rem;      /* 48px */
+
+            --font-weight-normal: 400;
+            --font-weight-bold: 700;
+            --font-weight-black: 900;
+
+            /* SPACING - Brutalist spacing (no padding within, tight spacing) */
+            --space-xs: 0.25rem;   /* 4px */
+            --space-sm: 0.5rem;    /* 8px */
+            --space-md: 1rem;      /* 16px */
+            --space-lg: 1.5rem;    /* 24px */
+            --space-xl: 2rem;      /* 32px */
+            --space-2xl: 3rem;     /* 48px */
+            --space-3xl: 4rem;     /* 64px */
+
+            /* BORDERS - Thick black borders everywhere */
+            --border-width: 3px;
+            --border-color: var(--color-black);
+            --border-radius: 0px;  /* No rounded corners */
+
+            /* SHADOWS - Hard offset shadows (neo-brutalism signature) */
+            --shadow-offset: 6px;
+            --shadow-sm: 3px 3px 0 var(--color-black);
+            --shadow-md: 6px 6px 0 var(--color-black);
+            --shadow-lg: 8px 8px 0 var(--color-black);
+            --shadow-orange: 6px 6px 0 var(--color-primary);
+            --shadow-gray: 6px 6px 0 var(--color-gray-dark);
+        }
+
+        /* ====================================
+           GOOGLE FONTS IMPORT
+           ==================================== */
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        /* ====================================
+           BASE STYLES
+           ==================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-normal);
+            line-height: 1.5;
+            color: var(--color-white);
+            background-color: var(--color-background);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: var(--font-weight-black);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h1 { font-size: var(--font-size-4xl); }
+        h2 { font-size: var(--font-size-3xl); }
+        h3 { font-size: var(--font-size-2xl); }
+        h4 { font-size: var(--font-size-xl); }
+
+        p {
+            margin-bottom: var(--space-md);
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: var(--font-weight-bold);
+            transition: color 0.15s ease;
+        }
+
+        a:hover {
+            color: var(--color-primary-dark);
+        }
+
+        code {
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+            background: var(--color-surface);
+            padding: 0.2em 0.4em;
+            border: var(--border-width) solid var(--color-black);
+        }
+
+        /* ====================================
+           UTILITY CLASSES
+           ==================================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-xl);
+        }
+
+        .section {
+            margin-bottom: var(--space-3xl);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-primary {
+            color: var(--color-primary);
+        }
+
+        .bg-surface {
+            background-color: var(--color-surface);
+        }
+
+        /* ====================================
+           HEADER / NAVIGATION
+           ==================================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--color-background);
+            border-bottom: var(--border-width) solid var(--color-black);
+            z-index: 1000;
+            padding: var(--space-md) var(--space-xl);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-black);
+            color: var(--color-white);
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--color-white);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-bold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.15s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--color-primary);
+        }
+
+        /* Mobile menu toggle */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--color-white);
+            font-size: var(--font-size-xl);
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--color-background);
+                flex-direction: column;
+                padding: var(--space-xl);
+                border-bottom: var(--border-width) solid var(--color-black);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+                pointer-events: none;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+
+        /* ====================================
+           BUTTONS
+           ==================================== */
+        .btn {
+            display: inline-block;
+            font-family: var(--font-primary);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-bold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: var(--space-md) var(--space-xl);
+            border: var(--border-width) solid var(--color-black);
+            background: var(--color-primary);
+            color: var(--color-black);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn:hover {
+            transform: translate(3px, 3px);
+            box-shadow: var(--shadow-sm);
+            color: var(--color-black);
+        }
+
+        .btn:active {
+            transform: translate(6px, 6px);
+            box-shadow: none;
+        }
+
+        .btn-secondary {
+            background: var(--color-white);
+            color: var(--color-black);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--color-white);
+            box-shadow: var(--shadow-gray);
+        }
+
+        .btn-ghost:hover {
+            background: var(--color-surface);
+            color: var(--color-white);
+        }
+
+        .btn-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .btn-small {
+            font-size: var(--font-size-sm);
+            padding: var(--space-sm) var(--space-lg);
+        }
+
+        .btn-large {
+            font-size: var(--font-size-lg);
+            padding: var(--space-lg) var(--space-2xl);
+        }
+
+        /* ====================================
+           CHAT INTERFACE - HERO COMPONENT
+           ==================================== */
+        .chat-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-top: 60px; /* Account for fixed header */
+        }
+
+        .chat-messages {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+            padding: var(--space-2xl) var(--space-xl);
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Message bubble base */
+        .message {
+            display: flex;
+            flex-direction: column;
+            max-width: 70%;
+            animation: messageSlideIn 0.3s ease-out;
+        }
+
+        @keyframes messageSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* AI messages - left aligned */
+        .message-ai {
+            align-self: flex-start;
+        }
+
+        .message-ai .message-bubble {
+            background: var(--color-surface);
+            color: var(--color-white);
+            border: var(--border-width) solid var(--color-black);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* User messages - right aligned */
+        .message-user {
+            align-self: flex-end;
+        }
+
+        .message-user .message-bubble {
+            background: var(--color-primary);
+            color: var(--color-black);
+            border: var(--border-width) solid var(--color-black);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Message bubble content */
+        .message-bubble {
+            padding: var(--space-lg);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            transition: all 0.15s ease;
+        }
+
+        .message-bubble:hover {
+            transform: translate(3px, 3px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .message-label {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-bold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-xs);
+            opacity: 0.7;
+        }
+
+        /* Chat input area */
+        .chat-input-container {
+            position: sticky;
+            bottom: 0;
+            background: var(--color-background);
+            border-top: var(--border-width) solid var(--color-black);
+            padding: var(--space-xl);
+        }
+
+        .chat-input-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .chat-input {
+            flex: 1;
+            font-family: var(--font-primary);
+            font-size: var(--font-size-base);
+            padding: var(--space-lg);
+            background: var(--color-surface);
+            border: var(--border-width) solid var(--color-black);
+            color: var(--color-white);
+            resize: none;
+            min-height: 60px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.15s ease;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-orange);
+        }
+
+        .chat-input::placeholder {
+            color: var(--color-gray-mid);
+        }
+
+        .chat-send-btn {
+            align-self: flex-end;
+        }
+
+        /* ====================================
+           CARDS - For case studies
+           ==================================== */
+        .card {
+            background: var(--color-surface);
+            border: var(--border-width) solid var(--color-black);
+            box-shadow: var(--shadow-md);
+            transition: all 0.15s ease;
+        }
+
+        .card:hover {
+            transform: translate(3px, 3px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card-header {
+            padding: var(--space-xl);
+            border-bottom: var(--border-width) solid var(--color-black);
+        }
+
+        .card-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-black);
+            margin-bottom: var(--space-sm);
+        }
+
+        .card-subtitle {
+            font-size: var(--font-size-sm);
+            color: var(--color-primary);
+            font-weight: var(--font-weight-bold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .card-body {
+            padding: var(--space-xl);
+        }
+
+        .card-footer {
+            padding: var(--space-xl);
+            border-top: var(--border-width) solid var(--color-black);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: var(--border-width) solid var(--color-black);
+        }
+
+        /* Card grid layout */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-2xl);
+        }
+
+        /* ====================================
+           TIMELINE COMPONENT
+           ==================================== */
+        .timeline {
+            position: relative;
+            padding: var(--space-2xl) 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: var(--border-width);
+            height: 100%;
+            background: var(--color-black);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-left: 50%;
+            padding-right: 0;
+        }
+
+        .timeline-content {
+            background: var(--color-surface);
+            border: var(--border-width) solid var(--color-black);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-xl);
+            max-width: 450px;
+            margin-right: var(--space-xl);
+            position: relative;
+            transition: all 0.15s ease;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: var(--space-xl);
+            margin-right: 0;
+        }
+
+        .timeline-content:hover {
+            transform: translate(3px, 3px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-date {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .timeline-title {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-black);
+            margin-bottom: var(--space-sm);
+        }
+
+        .timeline-description {
+            font-size: var(--font-size-base);
+            color: var(--color-gray-light);
+            line-height: 1.6;
+        }
+
+        /* Timeline dot */
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--color-primary);
+            border: var(--border-width) solid var(--color-black);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Mobile timeline */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                justify-content: flex-start;
+                padding-left: var(--space-xl);
+                padding-right: 0;
+            }
+
+            .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 0;
+                margin-right: 0;
+                max-width: 100%;
+            }
+
+            .timeline-dot {
+                left: 0;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ====================================
+           FORMS
+           ==================================== */
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-label {
+            display: block;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-bold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-sm);
+            color: var(--color-white);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            font-family: var(--font-primary);
+            font-size: var(--font-size-base);
+            padding: var(--space-md);
+            background: var(--color-surface);
+            border: var(--border-width) solid var(--color-black);
+            color: var(--color-white);
+            box-shadow: var(--shadow-md);
+            transition: all 0.15s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-orange);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: var(--color-gray-mid);
+        }
+
+        /* Checkbox and Radio */
+        .form-checkbox,
+        .form-radio {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-sm);
+            cursor: pointer;
+        }
+
+        .form-checkbox input,
+        .form-radio input {
+            width: 20px;
+            height: 20px;
+            margin-right: var(--space-sm);
+            cursor: pointer;
+            accent-color: var(--color-primary);
+        }
+
+        .form-error {
+            font-size: var(--font-size-sm);
+            color: #FF4444;
+            margin-top: var(--space-xs);
+            font-weight: var(--font-weight-bold);
+        }
+
+        /* ====================================
+           BADGES / TAGS
+           ==================================== */
+        .badge {
+            display: inline-block;
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-bold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: var(--space-xs) var(--space-sm);
+            border: var(--border-width) solid var(--color-black);
+            background: var(--color-primary);
+            color: var(--color-black);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .badge-secondary {
+            background: var(--color-white);
+        }
+
+        .badge-ghost {
+            background: transparent;
+            color: var(--color-white);
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+
+        /* ====================================
+           ALERTS
+           ==================================== */
+        .alert {
+            padding: var(--space-lg);
+            border: var(--border-width) solid var(--color-black);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .alert-info {
+            background: #0077DD;
+            color: var(--color-white);
+        }
+
+        .alert-success {
+            background: #00CC66;
+            color: var(--color-black);
+        }
+
+        .alert-warning {
+            background: #FFAA00;
+            color: var(--color-black);
+        }
+
+        .alert-error {
+            background: #FF4444;
+            color: var(--color-white);
+        }
+
+        .alert-title {
+            font-weight: var(--font-weight-black);
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-sm);
+        }
+
+        /* ====================================
+           LOADING STATES
+           ==================================== */
+        .loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: var(--border-width) solid var(--color-primary);
+            border-top-color: transparent;
+            animation: spin 0.6s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-large {
+            width: 40px;
+            height: 40px;
+        }
+
+        .loading-text {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-weight: var(--font-weight-bold);
+        }
+
+        /* Skeleton loading for cards */
+        .skeleton {
+            background: var(--color-surface);
+            border: var(--border-width) solid var(--color-black);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .skeleton-text {
+            height: 20px;
+            margin-bottom: var(--space-sm);
+        }
+
+        .skeleton-title {
+            height: 32px;
+            width: 60%;
+            margin-bottom: var(--space-md);
+        }
+
+        /* ====================================
+           PROFILE / ABOUT SECTION
+           ==================================== */
+        .profile {
+            display: flex;
+            gap: var(--space-2xl);
+            align-items: flex-start;
+            background: var(--color-surface);
+            border: var(--border-width) solid var(--color-black);
+            padding: var(--space-2xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: var(--border-width) solid var(--color-black);
+            box-shadow: var(--shadow-md);
+            flex-shrink: 0;
+        }
+
+        .profile-content {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-black);
+            margin-bottom: var(--space-sm);
+        }
+
+        .profile-title {
+            font-size: var(--font-size-lg);
+            color: var(--color-primary);
+            font-weight: var(--font-weight-bold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-lg);
+        }
+
+        .profile-bio {
+            font-size: var(--font-size-base);
+            line-height: 1.7;
+            color: var(--color-gray-light);
+            margin-bottom: var(--space-xl);
+        }
+
+        .profile-links {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .profile-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--color-background);
+            border: var(--border-width) solid var(--color-black);
+            color: var(--color-white);
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.15s ease;
+        }
+
+        .profile-link:hover {
+            background: var(--color-primary);
+            color: var(--color-black);
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--color-black);
+        }
+
+        /* Mobile profile */
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* ====================================
+           DEMO PAGE STYLES
+           ==================================== */
+        .demo-section {
+            margin-bottom: var(--space-3xl);
+            padding: var(--space-2xl);
+            background: var(--color-surface);
+            border: var(--border-width) solid var(--color-primary);
+        }
+
+        .demo-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-black);
+            margin-bottom: var(--space-xl);
+            color: var(--color-primary);
+            text-transform: uppercase;
+        }
+
+        .demo-grid {
+            display: grid;
+            gap: var(--space-lg);
+        }
+
+        .color-swatch {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-md);
+            border: var(--border-width) solid var(--color-black);
+            background: var(--color-surface);
+        }
+
+        .color-box {
+            width: 60px;
+            height: 60px;
+            border: var(--border-width) solid var(--color-black);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .color-info {
+            flex: 1;
+        }
+
+        .color-name {
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-lg);
+        }
+
+        .color-value {
+            font-family: var(--font-mono);
+            font-size: var(--font-size-sm);
+            color: var(--color-gray-light);
+        }
+
+        /* Typography showcase */
+        .type-sample {
+            margin-bottom: var(--space-lg);
+            padding: var(--space-lg);
+            border: var(--border-width) solid var(--color-black);
+            background: var(--color-surface);
+        }
+
+        .type-label {
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-gray-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-sm);
+        }
+    </style>
+</head>
+<body>
+    <!-- ====================================
+         HEADER / NAVIGATION EXAMPLE
+         ==================================== -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-logo">YOUR NAME</div>
+            <button class="nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#chat" class="nav-link">Chat</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#work" class="nav-link">Work</a></li>
+                <li><a href="#timeline" class="nav-link">Timeline</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 80px;">
+
+        <!-- ====================================
+             DESIGN SYSTEM OVERVIEW
+             ==================================== -->
+        <section class="demo-section">
+            <h1 class="demo-title">Design System Overview</h1>
+            <p style="margin-bottom: var(--space-xl); line-height: 1.7;">
+                This is a <strong>neo-brutalist design system</strong> featuring toxic orange as the primary accent color.
+                The aesthetic is characterized by <strong>thick black borders</strong>, <strong>hard offset shadows</strong>
+                (not drop shadows), <strong>flat colors</strong> with no gradients, and <strong>chunky bold typography</strong>.
+                The system prioritizes playful precision—energetic and snappy while maintaining strict geometric layouts.
+            </p>
+
+            <h3 style="margin-bottom: var(--space-lg);">Key Aesthetic Principles:</h3>
+            <ul style="margin-left: var(--space-xl); margin-bottom: var(--space-xl); line-height: 2;">
+                <li><strong>Neo-Brutalism:</strong> Thick black borders, offset shadows (6px blocks), no rounded corners</li>
+                <li><strong>Color:</strong> Toxic orange (#FF6B00) primary, near-black backgrounds, concrete grays, stark white text</li>
+                <li><strong>Typography:</strong> Chunky sans-serif (Space Grotesk), bold weights, tight spacing, uppercase labels</li>
+                <li><strong>Interaction:</strong> Snappy button feedback (shadow collapse on press), smooth micro-animations</li>
+                <li><strong>Layout:</strong> Strict geometric grids, minimal padding within elements, breathing room between sections</li>
+            </ul>
+        </section>
+
+        <!-- ====================================
+             COLOR PALETTE
+             ==================================== -->
+        <section class="demo-section">
+            <h2 class="demo-title">Color Palette</h2>
+            <div class="demo-grid">
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #FF6B00;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Toxic Orange</div>
+                        <div class="color-value">#FF6B00 - Primary accent</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #CC5500;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Dark Orange</div>
+                        <div class="color-value">#CC5500 - Hover states</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #0A0A0A;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Near Black</div>
+                        <div class="color-value">#0A0A0A - Background</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #1A1A1A;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Surface Black</div>
+                        <div class="color-value">#1A1A1A - Card backgrounds</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #333333;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Dark Gray</div>
+                        <div class="color-value">#333333 - Concrete gray</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #666666;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Mid Gray</div>
+                        <div class="color-value">#666666 - Secondary text</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #FFFFFF;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Stark White</div>
+                        <div class="color-value">#FFFFFF - Primary text</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #000000;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Pure Black</div>
+                        <div class="color-value">#000000 - Borders & shadows</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================
+             TYPOGRAPHY
+             ==================================== -->
+        <section class="demo-section">
+            <h2 class="demo-title">Typography</h2>
+            <p style="margin-bottom: var(--space-xl);">
+                Primary font: <strong>Space Grotesk</strong> (chunky geometric sans-serif)<br>
+                Monospace font: <strong>JetBrains Mono</strong> (for code)
+            </p>
+
+            <div class="type-sample">
+                <div class="type-label">Heading 1 - 48px / 900 weight</div>
+                <h1>The Quick Brown Fox Jumps</h1>
+            </div>
+
+            <div class="type-sample">
+                <div class="type-label">Heading 2 - 40px / 900 weight</div>
+                <h2>The Quick Brown Fox Jumps</h2>
+            </div>
+
+            <div class="type-sample">
+                <div class="type-label">Heading 3 - 32px / 900 weight</div>
+                <h3>The Quick Brown Fox Jumps</h3>
+            </div>
+
+            <div class="type-sample">
+                <div class="type-label">Heading 4 - 24px / 900 weight</div>
+                <h4>The Quick Brown Fox Jumps Over The Lazy Dog</h4>
+            </div>
+
+            <div class="type-sample">
+                <div class="type-label">Body Text - 16px / 400 weight</div>
+                <p>The quick brown fox jumps over the lazy dog. This is standard body text with normal weight and comfortable line-height for readability. Neo-brutalism doesn't mean sacrificing usability—it means being bold and intentional with design choices.</p>
+            </div>
+
+            <div class="type-sample">
+                <div class="type-label">Monospace Code - 16px</div>
+                <code>const greeting = "Hello, World!";</code>
+            </div>
+        </section>
+
+        <!-- ====================================
+             SPACING & SHADOWS
+             ==================================== -->
+        <section class="demo-section">
+            <h2 class="demo-title">Spacing & Shadows</h2>
+
+            <h3 style="margin-bottom: var(--space-lg);">Spacing Scale:</h3>
+            <div style="margin-bottom: var(--space-2xl);">
+                <div style="background: var(--color-primary); height: 4px; width: 4px; margin-bottom: var(--space-sm);"></div>
+                <p><strong>XS:</strong> 4px (0.25rem)</p>
+
+                <div style="background: var(--color-primary); height: 4px; width: 8px; margin-bottom: var(--space-sm);"></div>
+                <p><strong>SM:</strong> 8px (0.5rem)</p>
+
+                <div style="background: var(--color-primary); height: 4px; width: 16px; margin-bottom: var(--space-sm);"></div>
+                <p><strong>MD:</strong> 16px (1rem)</p>
+
+                <div style="background: var(--color-primary); height: 4px; width: 24px; margin-bottom: var(--space-sm);"></div>
+                <p><strong>LG:</strong> 24px (1.5rem)</p>
+
+                <div style="background: var(--color-primary); height: 4px; width: 32px; margin-bottom: var(--space-sm);"></div>
+                <p><strong>XL:</strong> 32px (2rem)</p>
+
+                <div style="background: var(--color-primary); height: 4px; width: 48px; margin-bottom: var(--space-sm);"></div>
+                <p><strong>2XL:</strong> 48px (3rem)</p>
+
+                <div style="background: var(--color-primary); height: 4px; width: 64px; margin-bottom: var(--space-sm);"></div>
+                <p><strong>3XL:</strong> 64px (4rem)</p>
+            </div>
+
+            <h3 style="margin-bottom: var(--space-lg);">Hard Offset Shadows (Neo-Brutalism Signature):</h3>
+            <div style="display: flex; gap: var(--space-xl); flex-wrap: wrap;">
+                <div style="background: var(--color-surface); padding: var(--space-xl); border: 3px solid black; box-shadow: 3px 3px 0 black;">
+                    <strong>Small</strong><br>3px 3px 0 black
+                </div>
+                <div style="background: var(--color-surface); padding: var(--space-xl); border: 3px solid black; box-shadow: 6px 6px 0 black;">
+                    <strong>Medium</strong><br>6px 6px 0 black
+                </div>
+                <div style="background: var(--color-surface); padding: var(--space-xl); border: 3px solid black; box-shadow: 8px 8px 0 black;">
+                    <strong>Large</strong><br>8px 8px 0 black
+                </div>
+                <div style="background: var(--color-surface); padding: var(--space-xl); border: 3px solid black; box-shadow: 6px 6px 0 #FF6B00;">
+                    <strong>Orange</strong><br>6px 6px 0 orange
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================
+             BUTTONS
+             ==================================== -->
+        <section class="demo-section">
+            <h2 class="demo-title">Buttons</h2>
+            <p style="margin-bottom: var(--space-xl);">
+                Buttons have <strong>hard offset shadows</strong> that collapse on press, creating a satisfying tactile feel.
+                The shadow moves with the button on hover, fully collapsing when active.
+            </p>
+
+            <div style="display: flex; gap: var(--space-lg); flex-wrap: wrap; margin-bottom: var(--space-2xl);">
+                <button class="btn">Primary Button</button>
+                <button class="btn btn-secondary">Secondary Button</button>
+                <button class="btn btn-ghost">Ghost Button</button>
+                <button class="btn btn-disabled">Disabled Button</button>
+            </div>
+
+            <h3 style="margin-bottom: var(--space-lg);">Button Sizes:</h3>
+            <div style="display: flex; gap: var(--space-lg); flex-wrap: wrap; align-items: center;">
+                <button class="btn btn-small">Small Button</button>
+                <button class="btn">Default Button</button>
+                <button class="btn btn-large">Large Button</button>
+            </div>
+        </section>
+
+        <!-- ====================================
+             CHAT INTERFACE DEMO
+             ==================================== -->
+        <section class="demo-section">
+            <h2 class="demo-title">Chat Interface (Hero Component)</h2>
+            <p style="margin-bottom: var(--space-xl);">
+                The chat interface is the centerpiece of the portfolio. It features <strong>borderless, edge-fading design</strong>
+                with neo-brutalist message bubbles. User messages appear in toxic orange on the right, AI messages in dark surface color on the left.
+            </p>
+
+            <!-- Chat Demo -->
+            <div style="background: var(--color-background); min-height: 500px; display: flex; flex-direction: column; border: 3px solid var(--color-black);">
+                <div class="chat-messages" style="flex: 1;">
+                    <div class="message message-ai">
+                        <div class="message-label">AI ASSISTANT</div>
+                        <div class="message-bubble">
+                            Hey! I'm an AI version of [Your Name]. Ask me anything about my projects, skills, or experience. I'm here to help you learn more about my work in software engineering and AI!
+                        </div>
+                    </div>
+
+                    <div class="message message-user">
+                        <div class="message-label">YOU</div>
+                        <div class="message-bubble">
+                            What's your most impressive project?
+                        </div>
+                    </div>
+
+                    <div class="message message-ai">
+                        <div class="message-label">AI ASSISTANT</div>
+                        <div class="message-bubble">
+                            Great question! My most impressive project is probably the AI-powered code review system I built that integrates with GitHub. It uses LLMs to analyze pull requests and provide intelligent feedback on code quality, security vulnerabilities, and best practices. The system has reviewed over 10,000 PRs and caught critical bugs before they hit production.
+                        </div>
+                    </div>
+
+                    <div class="message message-user">
+                        <div class="message-label">YOU</div>
+                        <div class="message-bubble">
+                            That's awesome! What tech stack did you use?
+                        </div>
+                    </div>
+
+                    <div class="message message-ai">
+                        <div class="message-label">AI ASSISTANT</div>
+                        <div class="message-bubble">
+                            The backend is built with Node.js and Express, using the GitHub API for integration. For the AI component, I used OpenAI's latest models with custom prompts optimized for code review. The frontend is a React dashboard with real-time updates via WebSockets. Everything is deployed on AWS with auto-scaling.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <textarea class="chat-input" placeholder="Ask me anything..." rows="1"></textarea>
+                        <button class="btn chat-send-btn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================
+             CARDS (Case Studies)
+             ==================================== -->
+        <section class="demo-section">
+            <h2 class="demo-title">Cards (Case Studies)</h2>
+            <p style="margin-bottom: var(--space-xl);">
+                Cards use the neo-brutalist aesthetic with hard shadows that shift on hover.
+                Perfect for showcasing project case studies with images, titles, and CTAs.
+            </p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #FF6B00 0%, #CC5500 100%);"></div>
+                    <div class="card-header">
+                        <div class="card-subtitle">Machine Learning</div>
+                        <h3 class="card-title">AI Code Review Bot</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Automated code review system using advanced language models to analyze pull requests and provide intelligent feedback on code quality, security, and best practices.</p>
+                        <div class="tag-list" style="margin-top: var(--space-lg);">
+                            <span class="badge">Node.js</span>
+                            <span class="badge">OpenAI</span>
+                            <span class="badge">GitHub API</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span style="color: var(--color-gray-light); font-size: var(--font-size-sm);">2024</span>
+                        <button class="btn btn-small">View Project →</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #333333 0%, #666666 100%);"></div>
+                    <div class="card-header">
+                        <div class="card-subtitle">Full-Stack Development</div>
+                        <h3 class="card-title">Real-Time Collaboration Platform</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Built a Figma-like collaborative design tool with real-time multiplayer editing, vector manipulation, and WebSocket-based synchronization.</p>
+                        <div class="tag-list" style="margin-top: var(--space-lg);">
+                            <span class="badge">React</span>
+                            <span class="badge">WebSockets</span>
+                            <span class="badge">Canvas API</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span style="color: var(--color-gray-light); font-size: var(--font-size-sm);">2023</span>
+                        <button class="btn btn-small">View Project →</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);"></div>
+                    <div class="card-header">
+                        <div class="card-subtitle">DevOps & Infrastructure</div>
+                        <h3 class="card-title">Kubernetes Auto-Scaler</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Custom Kubernetes controller that intelligently scales pods based on business metrics, reducing cloud costs by 40% while maintaining performance SLAs.</p>
+                        <div class="tag-list" style="margin-top: var(--space-lg);">
+                            <span class="badge">Kubernetes</span>
+                            <span class="badge">Go</span>
+                            <span class="badge">Prometheus</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span style="color: var(--color-gray-light); font-size: var(--font-size-sm);">2023</span>
+                        <button class="btn btn-small">View Project →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================
+             TIMELINE
+             ==================================== -->
+        <section class="demo-section">
+            <h2 class="demo-title">Timeline</h2>
+            <p style="margin-bottom: var(--space-xl);">
+                A vertical timeline component with alternating sides on desktop, collapsing to left-aligned on mobile.
+                Perfect for showing career history or project milestones.
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024 - Present</div>
+                        <h3 class="timeline-title">Senior AI Engineer</h3>
+                        <p class="timeline-description">
+                            Leading development of next-gen AI infrastructure at TechCorp. Building distributed training pipelines
+                            and optimizing LLM inference performance. Reduced model serving costs by 60% through custom optimizations.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022 - 2024</div>
+                        <h3 class="timeline-title">Full-Stack Engineer</h3>
+                        <p class="timeline-description">
+                            Built and scaled real-time collaboration features serving 100K+ users. Led migration from monolith
+                            to microservices architecture. Mentored junior engineers and established code review best practices.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020 - 2022</div>
+                        <h3 class="timeline-title">Software Engineer</h3>
+                        <p class="timeline-description">
+                            Developed core features for payment processing system handling $10M+ monthly transactions.
+                            Implemented fraud detection algorithms using machine learning. Achieved 99.99% uptime SLA.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2019 - 2020</div>
+                        <h3 class="timeline-title">Junior Developer</h3>
+                        <p class="timeline-description">
+                            Started career building web applications with React and Node.js. Contributed to open-source projects
+                            and learned fundamentals of scalable system design. Shipped features impacting thousands of users.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================
+             PROFILE / ABOUT SECTION
+             ==================================== -->
+        <section class="demo-section">
+            <h2 class="demo-title">Profile / About Section</h2>
+            <p style="margin-bottom: var(--space-xl);">
+                Profile section with image, bio, and social links. Uses neo-brutalist cards with hover effects.
+            </p>
+
+            <div class="profile">
+                <div class="profile-image" style="background: linear-gradient(135deg, #FF6B00 0%, #CC5500 100%); display: flex; align-items: center; justify-content: center; font-size: 48px; font-weight: 900;">
+                    YN
+                </div>
+                <div class="profile-content">
+                    <h2 class="profile-name">Your Name</h2>
+                    <div class="profile-title">Software Engineer & AI Specialist</div>
+                    <p class="profile-bio">
+                        I build intelligent systems that scale. With 5+ years of experience in full-stack development
+                        and machine learning, I specialize in creating AI-powered applications that solve real-world problems.
+                        My work spans from distributed systems to LLM integrations, always focusing on performance, reliability, and user experience.
+                    </p>
+                    <div class="profile-links">
+                        <a href="#" class="profile-link">
+                            <span>GitHub</span>
+                        </a>
+                        <a href="#" class="profile-link">
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="#" class="profile-link">
+                            <span>Email</span>
+                        </a>
+                        <a href="#" class="profile-link">
+                            <span>(555) 123-4567</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================
+             FORMS
+             ==================================== -->
+        <section class="demo-section">
+            <h2 class="demo-title">Forms</h2>
+            <p style="margin-bottom: var(--space-xl);">
+                Form elements with neo-brutalist styling. Focus states use orange borders and offset shadows.
+            </p>
+
+            <form style="max-width: 600px;">
+                <div class="form-group">
+                    <label class="form-label" for="name">Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" class="form-input" placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="project-type">Project Type</label>
+                    <select id="project-type" class="form-select">
+                        <option>Select a project type</option>
+                        <option>Web Application</option>
+                        <option>Mobile App</option>
+                        <option>AI/ML System</option>
+                        <option>DevOps/Infrastructure</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="message">Message</label>
+                    <textarea id="message" class="form-textarea" placeholder="Tell me about your project..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Interests</label>
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="interest-ai">
+                        <label for="interest-ai">AI & Machine Learning</label>
+                    </div>
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="interest-web">
+                        <label for="interest-web">Web Development</label>
+                    </div>
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="interest-devops">
+                        <label for="interest-devops">DevOps & Cloud</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Submit Message</button>
+            </form>
+        </section>
+
+        <!-- ====================================
+             BADGES & ALERTS
+             ==================================== -->
+        <section class="demo-section">
+            <h2 class="demo-title">Badges & Alerts</h2>
+
+            <h3 style="margin-bottom: var(--space-lg);">Badges:</h3>
+            <div class="tag-list" style="margin-bottom: var(--space-2xl);">
+                <span class="badge">React</span>
+                <span class="badge">TypeScript</span>
+                <span class="badge">Node.js</span>
+                <span class="badge">Python</span>
+                <span class="badge badge-secondary">Go</span>
+                <span class="badge badge-secondary">Rust</span>
+                <span class="badge badge-ghost">Docker</span>
+                <span class="badge badge-ghost">Kubernetes</span>
+            </div>
+
+            <h3 style="margin-bottom: var(--space-lg);">Alerts:</h3>
+
+            <div class="alert alert-info">
+                <div class="alert-title">Info Alert</div>
+                <p style="margin: 0;">This is an informational message with important details.</p>
+            </div>
+
+            <div class="alert alert-success">
+                <div class="alert-title">Success Alert</div>
+                <p style="margin: 0;">Your message was sent successfully! I'll get back to you soon.</p>
+            </div>
+
+            <div class="alert alert-warning">
+                <div class="alert-title">Warning Alert</div>
+                <p style="margin: 0;">This action cannot be undone. Please proceed with caution.</p>
+            </div>
+
+            <div class="alert alert-error">
+                <div class="alert-title">Error Alert</div>
+                <p style="margin: 0;">Something went wrong. Please try again later.</p>
+            </div>
+        </section>
+
+        <!-- ====================================
+             LOADING STATES
+             ==================================== -->
+        <section class="demo-section">
+            <h2 class="demo-title">Loading States</h2>
+
+            <div style="display: flex; gap: var(--space-2xl); align-items: center; margin-bottom: var(--space-xl);">
+                <div class="loading"></div>
+                <div class="loading loading-large"></div>
+                <div class="loading-text">
+                    <div class="loading"></div>
+                    <span>Loading content...</span>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: var(--space-lg);">Skeleton Loading:</h3>
+            <div class="card">
+                <div class="skeleton" style="height: 200px; width: 100%;"></div>
+                <div style="padding: var(--space-xl);">
+                    <div class="skeleton skeleton-title"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text" style="width: 70%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================
+             DESIGN NOTES
+             ==================================== -->
+        <section class="demo-section">
+            <h2 class="demo-title">Implementation Notes</h2>
+
+            <h3 style="margin-bottom: var(--space-lg);">Chat Landing Page Structure:</h3>
+            <p style="line-height: 1.7; margin-bottom: var(--space-lg);">
+                The hero chat interface should take up the full viewport with edges fading to dark.
+                Here's the recommended structure:
+            </p>
+            <code style="display: block; padding: var(--space-lg); line-height: 1.8;">
+                &lt;div class="chat-container"&gt;<br>
+                &nbsp;&nbsp;&lt;div class="chat-messages"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;!-- Message bubbles here --<br>
+                &nbsp;&nbsp;&lt;/div&gt;<br>
+                &nbsp;&nbsp;&lt;div class="chat-input-container"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;!-- Input field + send button --<br>
+                &nbsp;&nbsp;&lt;/div&gt;<br>
+                &lt;/div&gt;
+            </code>
+
+            <h3 style="margin-top: var(--space-2xl); margin-bottom: var(--space-lg);">Key Interaction Patterns:</h3>
+            <ul style="margin-left: var(--space-xl); line-height: 2;">
+                <li><strong>Button Press:</strong> Shadow collapses from 6px → 3px on hover, fully collapses on active</li>
+                <li><strong>Card Hover:</strong> Slight translate (3px) with shadow reduction for tactile feedback</li>
+                <li><strong>Input Focus:</strong> Border changes to orange, shadow changes to orange offset</li>
+                <li><strong>Message Entry:</strong> Slide up animation (translateY + opacity fade-in)</li>
+                <li><strong>Mobile Nav:</strong> Slide down from top with opacity transition</li>
+            </ul>
+
+            <h3 style="margin-top: var(--space-2xl); margin-bottom: var(--space-lg);">Responsive Breakpoints:</h3>
+            <ul style="margin-left: var(--space-xl); line-height: 2;">
+                <li><strong>Desktop:</strong> Max width 1400px for content, centered with breathing room</li>
+                <li><strong>Tablet:</strong> 768px breakpoint - timeline collapses to left, nav becomes hamburger</li>
+                <li><strong>Mobile:</strong> Card grid becomes single column, profile stacks vertically, reduced spacing</li>
+            </ul>
+
+            <h3 style="margin-top: var(--space-2xl); margin-bottom: var(--space-lg);">Performance Optimizations:</h3>
+            <ul style="margin-left: var(--space-xl); line-height: 2;">
+                <li>Use CSS transforms for animations (GPU-accelerated) instead of position changes</li>
+                <li>Lazy load case study images below the fold</li>
+                <li>Minimize chat message re-renders with proper React keys or vanilla JS optimization</li>
+                <li>Consider virtual scrolling for very long chat histories</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <script>
+        // ====================================
+        // INTERACTIVE BEHAVIORS
+        // ====================================
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const navToggle = document.querySelector('.nav-toggle');
+
+            if (!navToggle.contains(event.target) && !navLinks.contains(event.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Auto-resize chat textarea
+        const chatInput = document.querySelector('.chat-input');
+        if (chatInput) {
+            chatInput.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+            });
+
+            // Simulate sending message
+            const sendBtn = document.querySelector('.chat-send-btn');
+            const messagesContainer = document.querySelector('.chat-messages');
+
+            function sendMessage() {
+                const text = chatInput.value.trim();
+                if (!text) return;
+
+                // Create user message
+                const userMessage = document.createElement('div');
+                userMessage.className = 'message message-user';
+                userMessage.innerHTML = `
+                    <div class="message-label">YOU</div>
+                    <div class="message-bubble">${text}</div>
+                `;
+                messagesContainer.appendChild(userMessage);
+
+                // Clear input
+                chatInput.value = '';
+                chatInput.style.height = 'auto';
+
+                // Scroll to bottom
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+                // Simulate AI response after delay
+                setTimeout(() => {
+                    const aiMessage = document.createElement('div');
+                    aiMessage.className = 'message message-ai';
+                    aiMessage.innerHTML = `
+                        <div class="message-label">AI ASSISTANT</div>
+                        <div class="message-bubble">Thanks for your message! This is a demo, so I can't actually respond yet, but the real version will be powered by AI and connected to my GitHub to answer questions about my projects and experience.</div>
+                    `;
+                    messagesContainer.appendChild(aiMessage);
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                }, 1000);
+            }
+
+            sendBtn.addEventListener('click', sendMessage);
+
+            chatInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+        }
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Add entrance animations on scroll (optional)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe cards and timeline items for entrance animations
+        document.querySelectorAll('.card, .timeline-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+
+        console.log('🎨 Neo-Brutalist Design System Loaded');
+        console.log('Color: Toxic Orange (#FF6B00)');
+        console.log('Style: Hard shadows, thick borders, chunky typography');
+        console.log('Vibe: Playful precision with brutal confidence');
+    </script>
+</body>
+</html>
