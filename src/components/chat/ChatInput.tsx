@@ -39,7 +39,7 @@ function ChatInput({
   const isSubmitDisabled = !value.trim() || disabled
 
   return (
-    <div className="sticky bottom-0 w-full flex justify-center z-50 bg-background border-t-[3px] border-black p-8">
+    <div className="sticky bottom-0 w-full flex justify-center z-50 bg-gray-dark border-t-[3px] border-black p-4">
       <div className="w-full max-w-[900px] flex items-end gap-4">
         <Textarea
           ref={textareaRef}

@@ -58,7 +58,7 @@ export async function POST(req: Request) {
       system: systemPrompt,
       messages,
       tools,
-      maxSteps: 5,
+      maxSteps: 10,
     });
 
     return result.toAIStreamResponse();

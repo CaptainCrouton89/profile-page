@@ -14,9 +14,12 @@ export function Header() {
   const [open, setOpen] = useState(false)
 
   const navLinks = [
-    { href: "/", label: "Chat" },
-    { href: "/about", label: "About" },
+    { href: "/", label: "Home" },
     { href: "/projects", label: "Projects" },
+    { href: "/client-work", label: "Client Work" },
+    { href: "/about", label: "About" },
+    { href: "/timeline", label: "Timeline" },
+    { href: "/contact", label: "Contact" },
   ]
 
   return (

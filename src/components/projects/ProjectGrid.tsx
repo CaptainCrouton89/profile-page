@@ -34,9 +34,7 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
           subtitle={project.subtitle}
           description={project.description}
           tags={project.tags}
-          year={project.year}
           slug={project.slug}
-          image={project.image}
         />
       ))}
     </div>

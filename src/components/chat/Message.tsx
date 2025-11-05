@@ -1,5 +1,6 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { marked } from 'marked';
 
 interface MessageProps {
   role: 'user' | 'assistant';
@@ -8,7 +9,7 @@ interface MessageProps {
 
 const Message: React.FC<MessageProps> = ({ role, content }) => {
   const isUser = role === 'user';
-  const label = isUser ? 'YOU' : 'AI ASSISTANT';
+  const label = isUser ? 'YOU' : 'SILAS';
 
   return (
     <div
@@ -26,9 +27,12 @@ const Message: React.FC<MessageProps> = ({ role, content }) => {
           'p-6 text-base leading-relaxed border-[3px] border-black transition-all duration-150 ease-in-out hover:translate-x-[3px] hover:translate-y-[3px]',
           isUser
             ? 'bg-primary text-black'
-            : 'bg-surface text-white'
+            : 'text-white'
         )}
-        style={{ boxShadow: "var(--shadow-md)" }}
+        style={{
+          boxShadow: "var(--shadow-md)",
+          ...(!isUser && { backgroundColor: 'var(--color-gray-dark)' })
+        }}
         onMouseEnter={(e) => {
           e.currentTarget.style.boxShadow = "var(--shadow-sm)"
         }}
@@ -36,7 +40,19 @@ const Message: React.FC<MessageProps> = ({ role, content }) => {
           e.currentTarget.style.boxShadow = "var(--shadow-md)"
         }}
       >
-        {content}
+        {isUser ? (
+          <p className="whitespace-pre-wrap">{content}</p>
+        ) : (
+          <div
+            className="prose prose-invert prose-sm max-w-none [&>p]:mb-4 [&>p:last-child]:mb-0 [&>ul]:list-disc [&>ul]:pl-6 [&>ol]:list-decimal [&>ol]:pl-6 [&>li]:mb-1 [&_pre]:whitespace-pre-wrap [&_code]:break-words [&_a]:text-primary [&_a]:underline hover:[&_a]:opacity-80"
+            dangerouslySetInnerHTML={{
+              __html: marked(content, {
+                breaks: true,
+                gfm: true,
+              }),
+            }}
+          />
+        )}
       </div>
     </div>
   );

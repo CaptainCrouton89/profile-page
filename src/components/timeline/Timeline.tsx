@@ -66,6 +66,7 @@ export default function Timeline({ entries }: TimelineProps) {
               title={entry.title}
               description={entry.description}
               position={position}
+              links={entry.links}
             />
           </div>
         )
