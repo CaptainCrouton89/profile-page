@@ -1,5 +1,4 @@
-import { ContactForm } from "@/components/ContactForm"
-import { Github, Linkedin, Mail, Phone } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react"
 
 export default function ContactPage() {
   return (
@@ -38,43 +37,26 @@ export default function ContactPage() {
         </p>
       </div>
 
-      {/* Two Column Layout */}
+      {/* Contact Methods */}
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "1fr",
-          gap: "var(--space-3xl)",
           marginBottom: "var(--space-3xl)",
         }}
-        className="md:grid-cols-2"
       >
-        {/* Contact Form */}
-        <div
+        <h2
+          className="uppercase font-black"
           style={{
-            border: "var(--border-width) solid var(--color-black)",
-            boxShadow: "6px 6px 0 var(--color-black)",
-            padding: "var(--space-xl)",
-            background: "var(--color-surface)",
+            fontSize: "var(--font-size-xl)",
+            color: "var(--color-white)",
+            marginBottom: "var(--space-lg)",
+            letterSpacing: "0.05em",
+            textAlign: "center",
           }}
         >
-          <ContactForm />
-        </div>
+          WAYS TO REACH ME
+        </h2>
 
-        {/* Other Ways to Reach Me */}
-        <div>
-          <h2
-            className="uppercase font-black"
-            style={{
-              fontSize: "var(--font-size-xl)",
-              color: "var(--color-white)",
-              marginBottom: "var(--space-lg)",
-              letterSpacing: "0.05em",
-            }}
-          >
-            OTHER WAYS TO REACH ME
-          </h2>
-
-          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-lg)" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "var(--space-lg)" }}>
             {/* Email */}
             <div
               style={{
@@ -110,10 +92,10 @@ export default function ContactPage() {
                   marginBottom: "var(--space-md)",
                 }}
               >
-                your.email@example.com
+                rhyneer.silas@gmail.com
               </p>
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:rhyneer.silas@gmail.com"
                 className="uppercase font-bold transition-all duration-150 inline-block"
                 style={{
                   fontSize: "var(--font-size-sm)",
@@ -163,10 +145,10 @@ export default function ContactPage() {
                   marginBottom: "var(--space-md)",
                 }}
               >
-                linkedin.com/in/yourprofile
+                linkedin.com/in/silas-rhyneer
               </p>
               <a
-                href="https://linkedin.com/in/yourprofile"
+                href="https://linkedin.com/in/silas-rhyneer"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="uppercase font-bold transition-all duration-150 inline-block"
@@ -218,10 +200,10 @@ export default function ContactPage() {
                   marginBottom: "var(--space-md)",
                 }}
               >
-                github.com/yourusername
+                github.com/CaptainCrouton89
               </p>
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/CaptainCrouton89"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="uppercase font-bold transition-all duration-150 inline-block"
@@ -237,76 +219,7 @@ export default function ContactPage() {
                 View Repos →
               </a>
             </div>
-
-            {/* Phone */}
-            <div
-              style={{
-                border: "var(--border-width) solid var(--color-black)",
-                boxShadow: "4px 4px 0 var(--color-black)",
-                padding: "var(--space-lg)",
-                background: "var(--color-surface)",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "var(--space-md)",
-                  marginBottom: "var(--space-sm)",
-                }}
-              >
-                <Phone size={24} style={{ color: "var(--color-primary)" }} />
-                <h3
-                  className="uppercase font-bold"
-                  style={{
-                    fontSize: "var(--font-size-md)",
-                    color: "var(--color-white)",
-                  }}
-                >
-                  Phone
-                </h3>
-              </div>
-              <p
-                style={{
-                  fontSize: "var(--font-size-md)",
-                  color: "var(--color-gray-light)",
-                  marginBottom: "var(--space-md)",
-                }}
-              >
-                (555) 123-4567
-              </p>
-              <a
-                href="tel:+15551234567"
-                className="uppercase font-bold transition-all duration-150 inline-block"
-                style={{
-                  fontSize: "var(--font-size-sm)",
-                  padding: "var(--space-sm) var(--space-md)",
-                  background: "var(--color-white)",
-                  color: "var(--color-black)",
-                  border: "2px solid var(--color-black)",
-                  textDecoration: "none",
-                  marginRight: "var(--space-sm)",
-                }}
-              >
-                Call →
-              </a>
-              <a
-                href="sms:+15551234567"
-                className="uppercase font-bold transition-all duration-150 inline-block"
-                style={{
-                  fontSize: "var(--font-size-sm)",
-                  padding: "var(--space-sm) var(--space-md)",
-                  background: "var(--color-white)",
-                  color: "var(--color-black)",
-                  border: "2px solid var(--color-black)",
-                  textDecoration: "none",
-                }}
-              >
-                Text →
-              </a>
-            </div>
           </div>
-        </div>
       </div>
 
       {/* Availability Section */}
