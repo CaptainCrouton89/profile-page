@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { use } from "react"
+import { MarkdownContent } from "@/components/MarkdownContent"
 
 interface ProjectPageProps {
   params: Promise<{
@@ -233,15 +234,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           >
             THE STORY
           </h2>
-          <p
-            style={{
-              fontSize: "var(--font-size-md)",
-              color: "var(--color-white)",
-              lineHeight: "1.6",
-            }}
-          >
-            {project.story}
-          </p>
+          <MarkdownContent content={project.story} />
         </div>
 
         {/* Right Column: Quick Stats */}
@@ -371,15 +364,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               >
                 {challenge.title}
               </h3>
-              <p
-                style={{
-                  fontSize: "var(--font-size-md)",
-                  color: "var(--color-white)",
-                  lineHeight: "1.6",
-                }}
-              >
-                {challenge.description}
-              </p>
+              <MarkdownContent content={challenge.description} />
             </div>
           ))}
         </div>
