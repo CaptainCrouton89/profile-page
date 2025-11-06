@@ -6,17 +6,24 @@ import Message from './Message'
 import ChatInput from './ChatInput'
 
 const suggestedQuestions = [
-  "What are you working on these days?",
-  "Tell me about your AI experience",
-  "What's the 'silas velocity'?",
-  "How did you build Mystica?",
+  "What are you working on right now?",
+  "What's the 'Silas velocity' story?",
+  "How does the Claude Code ecosystem work?",
+  "Tell me about the observer pattern innovation",
+  "How did you optimize Mystica's AI costs?",
   "What's your development philosophy?",
-  "Tell me about Co-GM",
 ]
 
 export default function ChatInterface() {
   const { messages, input, handleInputChange, append, setInput, isLoading } = useChat({
     api: '/api/chat',
+    initialMessages: [
+      {
+        id: 'welcome',
+        role: 'assistant',
+        content: "Hey—thanks for stopping by. I'm Silas's AI assistant, trained on his work and experience. Ask me anything about his projects, technical philosophy, or what he's been building. I've got the details on Co-GM, Mystica, the Claude Code ecosystem—all of it. Fire away.",
+      },
+    ],
   })
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -46,15 +53,15 @@ export default function ChatInterface() {
   }
 
   return (
-    <div className="flex flex-col overflow-hidden" style={{ height: 'calc(100vh - 60px)' }}>
+    <div className="relative overflow-hidden" style={{ height: 'calc(100vh - 60px)' }}>
       {/* Messages area */}
       <div
         ref={messagesContainerRef}
-        className="flex-1 overflow-y-auto flex flex-col"
+        className="absolute inset-0 overflow-y-auto flex flex-col"
       >
-        <div className="flex flex-col gap-6 px-8 py-12 max-w-[900px] w-full mx-auto min-h-min">
-        {/* Quick Questions - Only show when no messages */}
-        {messages.length === 0 && (
+        <div className="flex flex-col gap-6 px-8 py-12 pb-32 max-w-[900px] w-full mx-auto min-h-min">
+        {/* Quick Questions - Only show when no user messages */}
+        {messages.filter(m => m.role === 'user').length === 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
             {suggestedQuestions.map((question, index) => (
               <button

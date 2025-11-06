@@ -96,7 +96,7 @@ Research 10 times, plan 5 times, execute once—because fixing a bad execution i
 **Key Technical Innovations:**
 
 1. **Agent Checkout System (Klaude):**
-The big innovation was allowing interactive subagents without burning parent context. Requirements gathering needs to be interactive but you want it done by subagents so you're not burning context. Since Claude Code is a child process of the wrapper, it can be killed by the parent, which then runs `claude code --resume` on a different session ID. From the user's perspective, your terminal UI is killed and suddenly a new one appears with the subagent interface.
+The big innovation was allowing interactive subagents without burning parent context. Requirements gathering needs to be interactive but you want it done by subagents so you're not burning context. Since Claude Code is a child process of the wrapper, it can be killed by the parent, which then runs \`claude code --resume\` on a different session ID. From the user's perspective, your terminal UI is killed and suddenly a new one appears with the subagent interface.
 
 2. **Async Tool Calls (Pre-Hooks):**
 Built this before hooks existed. Tool calls were asynchronous—when they fired off, a receipt was returned with a tool ID, but the actual response could come much later as a user message. I had a queue of messages that got filled up as tool calls completed. This enabled deep research in ~2 minutes instead of 10+ minutes by parallelizing web searches and summarization across multiple subagents.

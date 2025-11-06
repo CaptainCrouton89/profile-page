@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Textarea } from "@/components/ui/textarea"
+import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 
 interface ChatInputProps {
@@ -19,10 +19,10 @@ function ChatInput({
   disabled = false,
   placeholder = "Type your message...",
 }: ChatInputProps) {
-  const textareaRef = React.useRef<HTMLTextAreaElement>(null)
+  const inputRef = React.useRef<HTMLInputElement>(null)
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === "Enter" && !e.shiftKey) {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
       e.preventDefault()
       if (value.trim() && !disabled) {
         onSubmit()
@@ -39,10 +39,10 @@ function ChatInput({
   const isSubmitDisabled = !value.trim() || disabled
 
   return (
-    <div className="sticky bottom-0 w-full flex justify-center z-50 bg-gray-dark border-t-[3px] border-black p-4">
-      <div className="w-full max-w-[900px] flex items-end gap-4">
-        <Textarea
-          ref={textareaRef}
+    <div className="absolute bottom-0 left-0 right-0 w-full flex justify-center z-50 p-4 bg-background">
+      <div className="w-full max-w-[900px] flex items-center gap-4">
+        <Input
+          ref={inputRef}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onKeyDown={handleKeyDown}
