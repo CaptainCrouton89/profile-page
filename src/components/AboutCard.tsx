@@ -91,6 +91,7 @@ export function AboutCard({
           maxHeight: isExpanded ? "2000px" : "150px",
           transition: "max-height 0.3s ease-out",
           overflow: "hidden",
+          flex: 1,
         }}
       >
         {isExpanded ? fullContent : previewContent}
