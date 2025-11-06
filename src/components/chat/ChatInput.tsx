@@ -1,8 +1,8 @@
 "use client"
 
-import * as React from "react"
-import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import * as React from "react"
 
 interface ChatInputProps {
   value: string
@@ -39,7 +39,7 @@ function ChatInput({
   const isSubmitDisabled = !value.trim() || disabled
 
   return (
-    <div className="absolute bottom-0 left-0 right-0 w-full flex justify-center z-50 p-4 bg-background">
+    <div className="absolute bottom-0 left-0 right-0 w-full flex justify-center z-50 p-4 bg-transparent">
       <div className="w-full max-w-[900px] flex items-center gap-4">
         <Input
           ref={inputRef}
