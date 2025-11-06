@@ -37,15 +37,6 @@ export default function AboutPage() {
         >
           ABOUT ME
         </h1>
-        <p
-          style={{
-            fontSize: "var(--font-size-lg)",
-            color: "var(--color-gray-light)",
-            lineHeight: "1.6",
-          }}
-        >
-          Click any section to explore
-        </p>
       </div>
 
       {/* Bento Grid */}
@@ -53,9 +44,8 @@ export default function AboutPage() {
         style={{
           display: "grid",
           gap: "var(--space-xl)",
-          gridTemplateColumns: "1fr",
+          gridTemplateColumns: "repeat(2, 1fr)",
         }}
-        className="md:grid-cols-2"
       >
         {/* Profile Card - Always Visible, Full Width */}
         <div
@@ -64,33 +54,36 @@ export default function AboutPage() {
             border: "var(--border-width) solid var(--color-black)",
             boxShadow: "6px 6px 0 var(--color-black)",
             padding: "var(--space-xl)",
-            background: "var(--color-background)",
+            background: "var(--color-surface)",
           }}
         >
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
+              flexDirection: "row",
               gap: "var(--space-xl)",
+              alignItems: "center",
             }}
-            className="md:flex-row md:items-start"
           >
-            {/* Profile Photo Placeholder */}
+            {/* Profile Photo */}
             <div
               style={{
                 width: "200px",
                 height: "200px",
                 flexShrink: 0,
                 border: "var(--border-width) solid var(--color-black)",
-                background: "var(--color-gray-dark)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                overflow: "hidden",
               }}
             >
-              <span style={{ fontSize: "var(--font-size-2xl)", color: "var(--color-gray-mid)" }}>
-                200x200
-              </span>
+              <img
+                src="/profile.png"
+                alt="Silas Rhyneer"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
             </div>
 
             {/* Profile Info */}
@@ -125,8 +118,7 @@ export default function AboutPage() {
                   marginBottom: "var(--space-lg)",
                 }}
               >
-                I build intelligent systems that scale, solve impossible problems, and create magic
-                moments for users.
+                I build tools that make people say "Oh my god, it just does that for me." The impossible part is usually the point.
               </p>
 
               {/* Social Links */}
@@ -138,7 +130,7 @@ export default function AboutPage() {
                 }}
               >
                 <a
-                  href="https://github.com/yourusername"
+                  href="https://github.com/CaptainCrouton89"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-colors duration-150"
@@ -161,7 +153,7 @@ export default function AboutPage() {
                   GitHub
                 </a>
                 <a
-                  href="https://linkedin.com/in/yourprofile"
+                  href="https://linkedin.com/in/silas-rhyneer"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-colors duration-150"
@@ -184,7 +176,7 @@ export default function AboutPage() {
                   LinkedIn
                 </a>
                 <a
-                  href="mailto:your.email@example.com"
+                  href="mailto:rhyneer.silas@gmail.com"
                   className="transition-colors duration-150"
                   style={{
                     display: "flex",
@@ -204,27 +196,6 @@ export default function AboutPage() {
                   <Mail size={20} />
                   Email
                 </a>
-                <a
-                  href="tel:+15551234567"
-                  className="transition-colors duration-150"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "var(--space-xs)",
-                    color: "var(--color-white)",
-                    textDecoration: "none",
-                    fontSize: "var(--font-size-sm)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.color = "var(--color-primary)"
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.color = "var(--color-white)"
-                  }}
-                >
-                  <Phone size={20} />
-                  Phone
-                </a>
               </div>
             </div>
           </div>
@@ -240,26 +211,26 @@ export default function AboutPage() {
           previewContent={
             <div>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6", marginBottom: "var(--space-sm)" }}>
-                Alaska → Hawaii → Carleton → San Francisco
+                Started DMing D&D campaigns young—spent 5 years hand-drawing a 20k×20k pixel fantasy map (first Google result).
               </p>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6" }}>
-                Born and raised in Alaska. My dad grew up in a log cabin, made sure my childhood was full of crazy camping experiences...
+                Built 150+ programming projects, most to solve problems I had. Graduated Carleton with CS distinction. Moved to SF in Feb 2025 for the startup energy.
               </p>
             </div>
           }
           fullContent={
             <div>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6", marginBottom: "var(--space-md)" }}>
-                Born and raised in Alaska, where my dad grew up in a log cabin and made sure my childhood was full of camping, fishing, skiing, and flying in bush planes. These experiences taught me resourcefulness and problem-solving from an early age.
+                Born in Alaska. Grew up camping, fishing, skiing, flying—the kind of childhood that teaches you to solve problems with what you have. Started DMing D&D at 13, which led to a weird obsession: building the largest fantasy map on the internet. 20,000 pixels by 20,000 pixels. Took 5 years. Every mountain hand-drawn.
               </p>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6", marginBottom: "var(--space-md)" }}>
-                Spent two years at boarding school in Hawaii, where I became obsessed with foosball—playing hours every day until I reached competitive level.
+                When I commit to something, I go all in. Spent 3 years building a custom TTRPG rulebook because D&D's combat felt broken. My players now run it for their friends instead—they prefer it.
               </p>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6", marginBottom: "var(--space-md)" }}>
-                Attended Carleton College where I majored in Computer Science with a focus on AI/ML. Graduated with distinction in my senior capstone project. Founded and led the CS Mentorship Program.
+                At Carleton I focused on AI/ML, graduated with distinction for my senior capstone (custom LLM with highway model architecture, pre-GPT era). Built stock market predictors, computer vision algorithms, whatever seemed interesting. 150+ programming projects—most of them experiments, some still running.
               </p>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6" }}>
-                Moved to San Francisco in February 2025 to be at the heart of the startup scene, where I'm seeking senior engineering roles and selective consulting projects.
+                Now I'm in SF working with startups like Mimetic ($1.5M raised) and building tools in the Claude Code ecosystem. Looking for senior engineering or tech lead roles where complex problems and fast execution matter.
               </p>
             </div>
           }
@@ -274,39 +245,39 @@ export default function AboutPage() {
           onToggle={() => toggleCard("philosophy")}
           previewContent={
             <div>
-              <p style={{ color: "var(--color-primary)", fontSize: "var(--font-size-lg)", fontWeight: "bold", marginBottom: "var(--space-md)" }}>
-                "If it's impossible, that's an opportunity"
+              <p style={{ color: "var(--color-white)", lineHeight: "1.6", marginBottom: "var(--space-sm)" }}>
+                If a problem seems impossible, that sounds like a good place to start.
               </p>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6" }}>
-                Three pillars: Speed • Optimization • Creating Magic
+                I'm obsessed with making things faster—both my own workflows and the systems I build. I care about creating those moments where users realize the tool just handles it for them.
               </p>
             </div>
           }
           fullContent={
             <div>
-              <p style={{ color: "var(--color-primary)", fontSize: "var(--font-size-xl)", fontWeight: "bold", marginBottom: "var(--space-lg)" }}>
-                "If it's impossible, that's an opportunity"
+              <p style={{ color: "var(--color-white)", lineHeight: "1.6", marginBottom: "var(--space-lg)" }}>
+                I think pretty much anything is doable with the right combination of tools and thinking. If a problem seems impossible, that usually means no one's tried the right approach yet.
               </p>
 
               <h4 style={{ color: "var(--color-white)", fontSize: "var(--font-size-lg)", fontWeight: "bold", marginBottom: "var(--space-sm)" }}>
-                SPEED ("Silas Velocity")
+                Speed
               </h4>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6", marginBottom: "var(--space-lg)" }}>
-                Obsessed with workflow optimization. I build internal tools, memorize keybinds, and remove speed bumps before execution. Colleagues coined the term "Silas velocity" after seeing me deliver projects in a fraction of estimated time.
+                I build internal tools, memorize keybinds, automate the annoying parts. Most of the speed comes from removing friction before I start working. Agent orchestration and parallelization do the rest. I delivered CompozeLabs' voice AI MVP in 1 week—estimate was 4-6 weeks.
               </p>
 
               <h4 style={{ color: "var(--color-white)", fontSize: "var(--font-size-lg)", fontWeight: "bold", marginBottom: "var(--space-sm)" }}>
-                OPTIMIZATION
+                Optimization
               </h4>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6", marginBottom: "var(--space-lg)" }}>
-                Making things faster, better, stronger. Whether it's personal workflows or system performance, I'm always seeking the next 10x improvement. Example: Fine-tuning in Mystica saved 30% in AI costs.
+                I'm obsessed with removing friction from my workflow. Custom keybinds, CLI tools, agent orchestration setups—anything that saves 10 seconds gets automated. I've built slash commands that turn 5-step processes into one command. The time I invest in tooling pays back every single day.
               </p>
 
               <h4 style={{ color: "var(--color-white)", fontSize: "var(--font-size-lg)", fontWeight: "bold", marginBottom: "var(--space-sm)" }}>
-                CREATING MAGIC
+                Creating Magic
               </h4>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6" }}>
-                Building tools that make users say "Oh my god, it just magically does it for me." Those surprise-and-delight moments are what drive my work—like Co-GM's auto-linking or CosmicNotes' intelligent tagging.
+                The best tools surprise you. Co-GM's @-linking system automatically updates all references when you rename something. Mercury Notes learns which tags you use based on semantic similarity to past notes. Those "oh wow, it just works" moments are what I'm after.
               </p>
             </div>
           }
@@ -322,64 +293,61 @@ export default function AboutPage() {
           previewContent={
             <div>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6", marginBottom: "var(--space-sm)" }}>
-                AI/LLM Integration • Full-Stack Development • DevTools & Automation • Cloud Infrastructure
+                AI/ML • Frontend (React, TypeScript, Next.js) • Backend (Node, Python, Java, C#) • Infrastructure (AWS, Azure, Docker)
               </p>
             </div>
           }
           fullContent={
             <div>
               <h4 style={{ color: "var(--color-white)", fontSize: "var(--font-size-md)", fontWeight: "bold", marginBottom: "var(--space-sm)" }}>
-                AI & LLM Integration
+                Frontend
               </h4>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-sm)", marginBottom: "var(--space-lg)" }}>
-                <TechBadge tech="GPT-4.1" />
-                <TechBadge tech="Claude" />
+                <TechBadge tech="JavaScript" />
+                <TechBadge tech="TypeScript" />
+                <TechBadge tech="React" />
+                <TechBadge tech="Next.js" />
+                <TechBadge tech="Jest" />
+              </div>
+
+              <h4 style={{ color: "var(--color-white)", fontSize: "var(--font-size-md)", fontWeight: "bold", marginBottom: "var(--space-sm)" }}>
+                Backend
+              </h4>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-sm)", marginBottom: "var(--space-lg)" }}>
+                <TechBadge tech="Node.js" />
+                <TechBadge tech="Express" />
+                <TechBadge tech="Python" />
+                <TechBadge tech="Java" />
+                <TechBadge tech="Spring" />
+                <TechBadge tech="C#" />
+                <TechBadge tech=".NET" />
+              </div>
+
+              <h4 style={{ color: "var(--color-white)", fontSize: "var(--font-size-md)", fontWeight: "bold", marginBottom: "var(--space-sm)" }}>
+                Data & Infrastructure
+              </h4>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-sm)", marginBottom: "var(--space-lg)" }}>
+                <TechBadge tech="SQL" />
+                <TechBadge tech="PostgreSQL" />
+                <TechBadge tech="MongoDB" />
+                <TechBadge tech="Redis" />
+                <TechBadge tech="Docker" />
+                <TechBadge tech="AWS" />
+                <TechBadge tech="Azure" />
+                <TechBadge tech="Vercel" />
+              </div>
+
+              <h4 style={{ color: "var(--color-white)", fontSize: "var(--font-size-md)", fontWeight: "bold", marginBottom: "var(--space-sm)" }}>
+                AI & ML
+              </h4>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-sm)" }}>
                 <TechBadge tech="Fine-tuning" />
                 <TechBadge tech="RAG" />
                 <TechBadge tech="Embeddings" />
                 <TechBadge tech="Prompt Engineering" />
-                <TechBadge tech="Agent Orchestration" />
-              </div>
-
-              <h4 style={{ color: "var(--color-white)", fontSize: "var(--font-size-md)", fontWeight: "bold", marginBottom: "var(--space-sm)" }}>
-                Full-Stack Development
-              </h4>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-sm)", marginBottom: "var(--space-lg)" }}>
-                <TechBadge tech="TypeScript" />
-                <TechBadge tech="React" />
-                <TechBadge tech="Next.js" />
-                <TechBadge tech="Node.js" />
-                <TechBadge tech="Python" />
-                <TechBadge tech="FastAPI" />
-                <TechBadge tech="PostgreSQL" />
-                <TechBadge tech="MongoDB" />
-                <TechBadge tech="Redis" />
-                <TechBadge tech="Supabase" />
-              </div>
-
-              <h4 style={{ color: "var(--color-white)", fontSize: "var(--font-size-md)", fontWeight: "bold", marginBottom: "var(--space-sm)" }}>
-                DevTools & Automation
-              </h4>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-sm)", marginBottom: "var(--space-lg)" }}>
-                <TechBadge tech="Claude Code" />
-                <TechBadge tech="Agent Orchestration" />
-                <TechBadge tech="Git Hooks" />
-                <TechBadge tech="Custom CLIs" />
-                <TechBadge tech="Workflow Optimization" />
-                <TechBadge tech="MCP Servers" />
-              </div>
-
-              <h4 style={{ color: "var(--color-white)", fontSize: "var(--font-size-md)", fontWeight: "bold", marginBottom: "var(--space-sm)" }}>
-                Infrastructure & Cloud
-              </h4>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-sm)" }}>
-                <TechBadge tech="Docker" />
-                <TechBadge tech="Kubernetes" />
-                <TechBadge tech="AWS" />
-                <TechBadge tech="Vercel" />
-                <TechBadge tech="Azure" />
-                <TechBadge tech="WebSockets" />
-                <TechBadge tech="Real-time Systems" />
+                <TechBadge tech="Agent Workflows" />
+                <TechBadge tech="MCP" />
+                <TechBadge tech="PyTorch" />
               </div>
             </div>
           }
@@ -395,12 +363,10 @@ export default function AboutPage() {
           previewContent={
             <div>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6", marginBottom: "var(--space-sm)" }}>
-                D&D GM for 10+ years • 20k×20k pixel fantasy map
-                <br />
-                Heart Rush TTRPG • Foosball champion • Music (guitar/drums)
+                D&D GM for 10+ years. Built a 20k×20k pixel fantasy map and a custom TTRPG rulebook.
               </p>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6" }}>
-                GM for 10+ years. Built the largest fantasy map on the internet...
+                Also: board games, music (guitar/drums), outdoors, making maps for no good reason.
               </p>
             </div>
           }
@@ -418,7 +384,7 @@ export default function AboutPage() {
                     D&D
                   </h5>
                   <p style={{ color: "var(--color-gray-light)", fontSize: "var(--font-size-sm)", lineHeight: "1.5" }}>
-                    GM for 10+ years. Run all campaigns in my world "Alaria"
+                    GMing for 10+ years. All campaigns set in Alaria—my world with its own wiki (AlariaWiki.Online)
                   </p>
                 </div>
 
@@ -433,11 +399,11 @@ export default function AboutPage() {
                     Map Making
                   </h5>
                   <p style={{ color: "var(--color-gray-light)", fontSize: "var(--font-size-sm)", lineHeight: "1.5" }}>
-                    20k × 20k pixel fantasy map. Took 5 years. First Google result!
+                    Built the largest fantasy map on the internet (20k×20k pixels, hand-drawn mountains). Took 5 years. Worth it.
                   </p>
                 </div>
 
-                {/* Foosball */}
+                {/* Board Games */}
                 <div
                   style={{
                     border: "2px solid var(--color-gray-mid)",
@@ -445,10 +411,10 @@ export default function AboutPage() {
                   }}
                 >
                   <h5 style={{ color: "var(--color-white)", fontWeight: "bold", marginBottom: "var(--space-xs)" }}>
-                    Foosball
+                    Board Games
                   </h5>
                   <p style={{ color: "var(--color-gray-light)", fontSize: "var(--font-size-sm)", lineHeight: "1.5" }}>
-                    Only 2-7 people in the world can beat me consistently. Played obsessively in HS
+                    Game design aficionado. Don't play much anymore—too competitive, won't stop until I've solved the game
                   </p>
                 </div>
 
@@ -478,7 +444,7 @@ export default function AboutPage() {
                     Heart Rush
                   </h5>
                   <p style={{ color: "var(--color-gray-light)", fontSize: "var(--font-size-sm)", lineHeight: "1.5" }}>
-                    Custom TTRPG rulebook. Fixed D&D's problems with tactical combat system
+                    Custom TTRPG I built over 3 years. Fixes D&D's combat pacing—simultaneous turns, more tactical decisions
                   </p>
                 </div>
 
@@ -508,32 +474,32 @@ export default function AboutPage() {
           title="WHAT I'M LOOKING FOR"
           isExpanded={expandedCard === "goals"}
           onToggle={() => toggleCard("goals")}
-          className="md:col-span-2"
+          style={{ gridColumn: "1 / -1" }}
           previewContent={
             <div>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6" }}>
-                Seeking senior engineering or tech lead roles in DevTools, AI infrastructure, or high-growth startups where speed & innovation are valued
+                Looking for senior engineering or tech lead roles where I can own hard technical problems—DevTools, AI infrastructure, or high-growth startups that move fast.
               </p>
             </div>
           }
           fullContent={
             <div>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6", marginBottom: "var(--space-md)" }}>
-                <strong>What I want:</strong> Senior engineering or tech lead role where I can take ownership of complex technical challenges
+                I want a senior engineering or tech lead role where I can own complex technical problems end-to-end. Not just implement—architect, optimize, and ship.
               </p>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6", marginBottom: "var(--space-md)" }}>
-                <strong>What I build:</strong> Things that seem impossible, systems that create magic for users, tools that developers love using
+                I build things that seem impossible at first. Systems that create those magic moments for users. Tools that developers actually want to use.
               </p>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6", marginBottom: "var(--space-md)" }}>
-                <strong>Ideal environment:</strong>
+                <strong>Environments I thrive in:</strong>
               </p>
-              <ul style={{ color: "var(--color-white)", lineHeight: "1.8", marginBottom: "var(--space-lg)", paddingLeft: "var(--space-lg)" }}>
+              <ul style={{ color: "var(--color-white)", lineHeight: "1.8", marginBottom: "var(--space-lg)", paddingLeft: "var(--space-lg)", listStyleType: "disc" }}>
                 <li>DevTools companies building the future of software development</li>
-                <li>AI infrastructure companies pushing the boundaries of what's possible</li>
-                <li>High-growth startups where speed and innovation are valued</li>
+                <li>Early-stage startups tackling hard technical problems with AI</li>
+                <li>High-growth companies where fast execution and innovation matter</li>
               </ul>
               <p style={{ color: "var(--color-white)", lineHeight: "1.6", marginBottom: "var(--space-lg)" }}>
-                <strong>What I bring:</strong> "Silas velocity", obsessive optimization, full-stack AI expertise, and a track record of shipping impossible features
+                What I bring: fast execution, obsessive optimization, full-stack AI expertise, and a track record of solving hard problems.
               </p>
               <div style={{ display: "flex", gap: "var(--space-md)", flexWrap: "wrap" }}>
                 <a

@@ -7,6 +7,7 @@ interface TimelineItemProps {
   title: string
   description: string
   position: 'left' | 'right'
+  skills?: string[]
   links?: Array<{
     label: string
     href: string
@@ -18,12 +19,13 @@ export default function TimelineItem({
   title,
   description,
   position,
+  skills,
   links,
 }: TimelineItemProps) {
   return (
     <div
       style={{
-        background: '#1A1A1A',
+        background: 'var(--color-surface)',
         border: '3px solid var(--color-black)',
         boxShadow: '6px 6px 0 var(--color-black)',
         padding: 'var(--space-xl)',
@@ -70,11 +72,55 @@ export default function TimelineItem({
           color: 'var(--color-gray-light)',
           lineHeight: 1.6,
           margin: 0,
-          marginBottom: links && links.length > 0 ? 'var(--space-md)' : 0,
+          marginBottom: (skills && skills.length > 0) || (links && links.length > 0) ? 'var(--space-md)' : 0,
         }}
       >
         {description}
       </p>
+
+      {/* Skills badges */}
+      {skills && skills.length > 0 && (
+        <div style={{ marginBottom: links && links.length > 0 ? 'var(--space-md)' : 0 }}>
+          <div
+            style={{
+              fontSize: 'var(--font-size-xs)',
+              fontWeight: 'var(--font-weight-bold)',
+              color: 'var(--color-gray-light)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              marginBottom: 'var(--space-xs)',
+            }}
+          >
+            Skills
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              gap: 'var(--space-xs)',
+              flexWrap: 'wrap',
+            }}
+          >
+            {skills.map((skill, index) => (
+              <span
+                key={index}
+                style={{
+                  fontSize: 'var(--font-size-xs)',
+                  fontWeight: 'var(--font-weight-bold)',
+                  color: 'var(--color-black)',
+                  background: 'var(--color-primary)',
+                  padding: '4px 8px',
+                  border: '2px solid var(--color-black)',
+                  boxShadow: '2px 2px 0 var(--color-black)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                }}
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
 
       {links && links.length > 0 && (
         <div

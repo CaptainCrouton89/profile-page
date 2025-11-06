@@ -9,6 +9,7 @@ interface AboutCardProps {
   isExpanded: boolean
   onToggle: () => void
   className?: string
+  style?: React.CSSProperties
 }
 
 export function AboutCard({
@@ -20,6 +21,7 @@ export function AboutCard({
   isExpanded,
   onToggle,
   className = "",
+  style = {},
 }: AboutCardProps) {
   return (
     <div
@@ -33,8 +35,11 @@ export function AboutCard({
           ? "6px 6px 0 var(--color-primary)"
           : "6px 6px 0 var(--color-black)",
         padding: "var(--space-xl)",
-        background: "var(--color-background)",
+        background: "var(--color-surface)",
         overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        ...style,
       }}
       onMouseEnter={(e) => {
         if (!isExpanded) {
@@ -83,7 +88,7 @@ export function AboutCard({
       {/* Content */}
       <div
         style={{
-          maxHeight: isExpanded ? "2000px" : "100px",
+          maxHeight: isExpanded ? "2000px" : "150px",
           transition: "max-height 0.3s ease-out",
           overflow: "hidden",
         }}

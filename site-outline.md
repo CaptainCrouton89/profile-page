@@ -1,4 +1,4 @@
-Projects Featured: Co-GM, Mystica, Sales Application (the compoze labs app, give it a better name), .claude/klaude dev tools (give it a better name), cosmicnotes (real name is Mercury Notes).
+Projects Featured: Co-GM, Mystica, Sales Application (the compoze labs app, give it a better name), .claude/klaude dev tools (give it a better name), Mercury Notes.
 
 Then, have the sales app (it was for a company called the Sales Dream, but we need client anonymity) link to "more client work" page. That page should have the rest of my client work at agencies.
 

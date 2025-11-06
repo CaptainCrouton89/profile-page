@@ -10,7 +10,7 @@
 1. **Co-GM** - 1,500+ users, 50+ paying subscribers, solo-developed SaaS
 2. **Mystica** - AI-powered geo-RPG, novel LLM fine-tuning architecture
 3. **Claude Code Ecosystem** - .claude (478 stars) + klaude + MCP Boilerplate (78 stars)
-4. **CosmicNotes (Mercury Notes)** - AI-powered note-taking with semantic search
+4. **Mercury Notes** - AI-powered note-taking with semantic search
 5. **CompozeLabs** - Voice-interactive sales coaching tool (links to client work page)
 
 ### Client Work Page (separate timeline/abbreviated):
@@ -293,16 +293,16 @@ Created to help others spin up Model Context Protocol servers more easily. "It'l
 
 ---
 
-## Case Study 4: CosmicNotes (Mercury Notes)
+## Case Study 4: Mercury Notes
 
 ### Basic Info
-**Repository:** CosmicNotes (formerly Mercury Notes)
-**URL:** cosmic-delta-gilt.vercel.app
+**Repository:** Mercury Notes (formerly CosmicNotes)
+**URL:** mercury.cosmo.it.com
 **Tech Stack:** Next.js 15, React 19, Redux Toolkit, RTK Query, Supabase, Anthropic Claude, OpenAI, Tailwind CSS 4, Radix UI, MDXEditor
 **Primary User:** Myself (cost-sensitive design)
 
 ### Core Problem Statement
-"The root issue I wanted to solve with Cosmic Notes is that when recording notes, we want to just scribble it down. But when reading notes, we want things to be nicely structured."
+"The root issue I wanted to solve with Mercury Notes is that when recording notes, we want to just scribble it down. But when reading notes, we want things to be nicely structured."
 
 ### Technical Achievements
 
@@ -341,7 +341,7 @@ Answer: Not necessarily automatically. The summary page shows that it's "dirty" 
 "When I go to the tag page and look at that, I'm not looking at the individual notes which are just scribbles and have duplicates and are messy and aren't formatted. Instead I'm looking at this beautifully formatted, nicely synthesized version. And then if I want to see the actual raw inputs, I can click on any of the references that are linked inside that summary document back to my original note."
 
 **Example Use Case:**
-"On my Cosmic Notes, I have something for D&D ideas. All the things that are relevant to D&D ideas show up in one giant section with a whole bunch of tabs for like to-dos and brainstorming and research. When I want to focus on the subject, I'll open up that page. Now I have access to everything that's relevant because every note that has that tag will show up here. I can click and enter the full note or I can just see the summarizations that appear."
+"On Mercury Notes, I have something for D&D ideas. All the things that are relevant to D&D ideas show up in one giant section with a whole bunch of tabs for like to-dos and brainstorming and research. When I want to focus on the subject, I'll open up that page. Now I have access to everything that's relevant because every note that has that tag will show up here. I can click and enter the full note or I can just see the summarizations that appear."
 
 **4. RAG-Powered Chat Interface**
 
@@ -354,7 +354,7 @@ Answer: I use whatever OpenAI's embedding model is - the medium sized one. I thi
 - Custom tools for LLMs to query notes using RAG
 - "Incredibly, incredibly powerful AI native note-taking tool"
 
-### CosmicNotes vs Co-GM
+### Mercury Notes vs Co-GM
 
 Question: How do they differ?
 Answer: Co-GM is really specialized for GMs. It's got all these tools that are only useful for GMs - custom calendars, customizable random tables that are recursive and self-generated. It bundles them all together on one page with different panels for notes, scratch pad, wiki, random generators, dice, calendar timeline view. All these things are on one page and synthesized. "I've been a GM for a decade, over a decade now, and I really know exactly what's important and what's not important. I've just specialized the ever-living shit out of it for that use case."
@@ -362,8 +362,8 @@ Answer: Co-GM is really specialized for GMs. It's got all these tools that are o
 **Co-GM's Speed Philosophy:**
 "People are running a game, they don't want to be looking at their notes. They're happy to spend time taking notes in the beginning. But then during the game, it's really important to be able to take notes lightning fast and then have them get organized later."
 
-**CosmicNotes' Target User:**
-"Cosmic Notes is really just like a more generic note taking tool for people who are really busy in their lives who notice that most of the time when they open their notes, it's in the middle of a conversation. They're like, 'Oh wait, let me note that down really quick.' And they can just scribble down a few things. And then when they try to find it later, it's much easier and it's organized with all the rest of their content."
+**Mercury Notes' Target User:**
+"Mercury Notes is really just like a more generic note taking tool for people who are really busy in their lives who notice that most of the time when they open their notes, it's in the middle of a conversation. They're like, 'Oh wait, let me note that down really quick.' And they can just scribble down a few things. And then when they try to find it later, it's much easier and it's organized with all the rest of their content."
 
 ---
 
@@ -645,7 +645,7 @@ Answer: "I'm a people pleaser. If I can impress people by being the best they've
 **On Creating "Magic" Moments:**
 "I get really excited by hard LLM problems. I love DevTools. I've been working on endless side projects, accelerating my own workflows as much as possible, and creating joy for users by surprising them with 'Oh my god, it just magically does it for me.' That's a lot of what I'm focusing on with LLMs."
 
-"In Co-GM and Cosmic Notes, those were both very 'Oh my goodness, it just magically has everything I need and it does it for me.' That gives me a lot of joy."
+"In Co-GM and Mercury Notes, those were both very 'Oh my goodness, it just magically has everything I need and it does it for me.' That gives me a lot of joy."
 
 ### Side Projects & Interests
 

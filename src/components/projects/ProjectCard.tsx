@@ -26,7 +26,7 @@ export default function ProjectCard({
         border: "var(--border-width) solid var(--color-black)",
         boxShadow: "6px 6px 0 var(--color-black)",
         padding: "var(--space-xl)",
-        background: "var(--color-background)",
+        background: "var(--color-surface)",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "translate(3px, 3px)"

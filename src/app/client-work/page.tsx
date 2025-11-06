@@ -55,7 +55,7 @@ export default function ClientWorkPage() {
             "25% improvement in sales rep pass-rates",
             "Colleagues coined term 'Silas velocity'",
           ]}
-          techStack={["React", "TypeScript", "OpenAI", "WebSockets"]}
+          techStack={["Next.js", "WebRTC", "OpenAI Voice API"]}
           link={{
             href: "/projects/compozelabs",
             label: "View Full Case Study",
@@ -91,7 +91,7 @@ export default function ClientWorkPage() {
           <ClientWorkCard
             title="ODAPT"
             subtitle="YC W25 - AI Application Builder"
-            timeline="~1 month (2025)"
+            timeline="~1 Month (2025)"
             description="Frontend architecture overhaul for AI-powered application builder (Lovable competitor). Migrated 10,000+ lines from vanilla JavaScript to TypeScript + Next.js with recursive iframe architecture where AI generates and modifies its own running interface in real-time."
             metrics={[
               "45% frontend performance improvement",
@@ -105,21 +105,19 @@ export default function ClientWorkPage() {
           <ClientWorkCard
             title="Crypto Trading Analytics"
             subtitle="DeFi Investment Firm"
-            timeline="Ongoing (started 2024)"
-            description="Real-time yield tracking dashboard for $20M crypto portfolio. Built cross-chain price normalization engine (67 blockchains), real-time yield & compounding returns model with Server-Sent Events (<200ms latency). Reduced time-to-insight by 95% (5-8 hours → instant)."
+            timeline="2025 (Ongoing)"
+            description="Real-time yield tracking dashboard for $20M crypto portfolio. Built cross-chain price normalization engine (67 blockchains). Reduced time-to-insight by 95% (5-8 hours → instant)."
             metrics={[
               "$20M+ in assets under management",
               "95% reduction in time-to-insight",
-              "1,800 hours annual savings per portfolio manager",
-              "$2.3M additional yield captured annually",
             ]}
-            techStack={["Next.js", "TypeScript", "DeBank API", "Supabase", "PostgreSQL", "Redis"]}
+            techStack={["Next.js", "TypeScript", "DeBank API", "Supabase", "PostgreSQL"]}
           />
 
           <ClientWorkCard
             title="Cancer Education Platform"
             subtitle="Healthcare Startup (C0)"
-            timeline="~1 month (2024-2025)"
+            timeline="~1 Month (2025)"
             description="AI-powered cancer education platform aggregating information from three sources: public web content (Google, Reddit, Quora via Firecrawl), AI-generated responses (OpenAI), and clinician-reviewed content. Addresses critical gap where 66% of cancer patients seek information online but only 30% discuss findings with clinicians."
             metrics={[
               "Multi-source comparison interface",
@@ -133,7 +131,7 @@ export default function ClientWorkPage() {
           <ClientWorkCard
             title="Mimetic"
             subtitle="Video Generation Pipeline"
-            timeline="~1 month (ongoing, 2025)"
+            timeline="2025 (Ongoing)"
             description="Automated video generation pipeline for seed-stage startup (raised $1.5M). Subagent-based script generation with structured output, parallelized 4-second chunks, continuous footage using last-frame seeding, and video cloning capability to recreate existing videos with same feel/color schemes."
             metrics={[
               "Parallelized video generation for speed",
@@ -141,20 +139,7 @@ export default function ClientWorkPage() {
               "Transcript-based precise cutting with timestamps",
               "Video cloning with style preservation",
             ]}
-            techStack={["Claude Code", "Replicate API", "11 Labs", "FFMPEG"]}
-          />
-
-          <ClientWorkCard
-            title="Humanity's Voice"
-            subtitle="Social Media Voting Tool"
-            timeline="2025"
-            description="Crowd-sourced social media posting tool where users vote on words to be added to a growing post that gets published daily. Migrated from raw HTML/JS to React."
-            metrics={[
-              "Daily automated posting",
-              "Community-driven content creation",
-              "React migration for improved maintainability",
-            ]}
-            techStack={["React", "TypeScript"]}
+            techStack={["Claude Code", "Agent Coordination", "Replicate API", "11 Labs", "FFMPEG"]}
           />
         </div>
       </section>
@@ -184,10 +169,10 @@ export default function ClientWorkPage() {
 
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-xl)" }}>
           <ClientWorkCard
-            title="Starkey Hearing Technologies"
-            subtitle="International Health Tech Company"
-            timeline="Apr 2023 - Dec 2024"
-            description="Full-stack developer for e-commerce web application at 5,000+ employee hearing aid company. Navigated peak enterprise complexity across React, Knockout.js, and Blazor frontends with C# .NET microservices backend. Quote from team: '2x commits and 5x code vs any other developer'"
+            title="International Health Tech Company"
+            subtitle="E-Commerce Platform"
+            timeline="Jun 2023 - Dec 2024"
+            description="Full-stack developer for e-commerce web application at 5,000+ employee hearing aid company. Navigated peak enterprise complexity across React, Knockout.js, and Blazor frontends with C# .NET microservices backend."
             metrics={[
               "Optimized page loading by seconds",
               "Reduced technical debt across massive codebase",
@@ -201,7 +186,7 @@ export default function ClientWorkPage() {
             title="Internal Timesheet Platform"
             subtitle="Consulting Agency Tool"
             timeline="Aug 2022 - Apr 2023"
-            description="Primary developer on timesheet submission and review platform for consulting agency. Employees submit timesheets via web app, agencies review and approve with notes. Integrated with Salesforce API for data synchronization."
+            description="Primary developer on timesheet submission and review platform for consulting agency. Employees submit timesheets via web app, agencies review and approve with notes. Integrated with Salesforce API for data synchronization. Quote from team: '2x commits and 5x code vs any other developer'"
             metrics={[
               "500 active users",
               "2,000 timesheets processed monthly",

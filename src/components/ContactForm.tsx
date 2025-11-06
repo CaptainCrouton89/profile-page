@@ -29,7 +29,7 @@ export function ContactForm() {
     padding: "var(--space-md)",
     fontSize: "var(--font-size-md)",
     border: "var(--border-width) solid var(--color-black)",
-    background: "var(--color-background)",
+    background: "var(--color-surface-elevated)",
     color: "var(--color-white)",
     fontFamily: "inherit",
   }

@@ -1,8 +1,8 @@
-import { Project } from "@/lib/markdown"
+import { ProjectListing } from "@/types/project-listing"
 import ProjectCard from "./ProjectCard"
 
 interface ProjectGridProps {
-  projects: Project[]
+  projects: ProjectListing[]
 }
 
 export default function ProjectGrid({ projects }: ProjectGridProps) {

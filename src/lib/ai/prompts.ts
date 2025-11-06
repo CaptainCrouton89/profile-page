@@ -22,7 +22,7 @@ Providing consulting services with focus on system architecture and AI integrati
 ### AI Engineer | CompozeLabs
 **Jan 2025 - Feb 2025 | Minneapolis, MN**
 
-**Core Skills:** AI Integration (75%), NextJS (80%), AWS (60%), AI Framework Design (70%)
+**Core Skills:** Next.js (80%), WebRTC (75%), OpenAI Voice API (80%), AI Framework Design (70%)
 
 Solo-developed a **voice-interactive sales-coaching tool** using novel architecture with multiple LLMs to analyze conversations in real time. Built a tool where **users can practice real-time sales pitches against a voice AI modeled on real people** with interactive questioning, responses, and performance feedback.
 

@@ -18,7 +18,7 @@ Site Map & Navigation
     ├─> /projects/co-gm
     ├─> /projects/mystica
     ├─> /projects/claude-code-ecosystem
-    ├─> /projects/cosmicnotes
+    ├─> /projects/mercury-notes
     └─> /projects/compozelabs
         └─> Cross-link to Client Work page
 
@@ -181,7 +181,7 @@ Structure (take inspiration from your design doc):
 ┌────────────────────────────────────────────────────────┐
 │ RELATED WORK                                           │
 ├────────────────────────────────────────────────────────┤
-│ [Card: Mystica] [Card: CosmicNotes]                   │
+│ [Card: Mystica] [Card: Mercury Notes]                 │
 │ "Check out these related projects"                    │
 └────────────────────────────────────────────────────────┘
 
@@ -417,7 +417,7 @@ Three pillars: Speed • Optimization • Creating Magic"
 - **✨ CREATING MAGIC**
   - "Oh my god, it just magically does it for me" moments
   - Building tools that surprise and delight
-  - Examples: Co-GM auto-linking, CosmicNotes tagging
+  - Examples: Co-GM auto-linking, Mercury Notes tagging
   - What drives my work
 
 **🛠️ TECHNICAL SKILLS**
@@ -836,10 +836,10 @@ At bottom of each case study, show related projects:
     subtitle="AI-Powered Geo-RPG"
     href="/projects/mystica"
 />
-<ProjectCard 
-    title="CosmicNotes"
+<ProjectCard
+    title="Mercury Notes"
     subtitle="AI Note-Taking"
-    href="/projects/cosmicnotes"
+    href="/projects/mercury-notes"
 />
 </div>
 </section>
@@ -906,7 +906,7 @@ Phase 3: Case Study Pages
 - Key features
 - Impact & results
 - Related work
-- Create 5 case study pages (Co-GM, Mystica, Claude Code, CosmicNotes,
+- Create 5 case study pages (Co-GM, Mystica, Claude Code, Mercury Notes,
 CompozeLabs)
 
 Phase 4: Client Work Page

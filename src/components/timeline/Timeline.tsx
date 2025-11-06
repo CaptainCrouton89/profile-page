@@ -1,4 +1,4 @@
-import { TimelineEntry } from '@/lib/markdown'
+import { TimelineEntry } from '@/types/timeline'
 import TimelineItem from './TimelineItem'
 import styles from './Timeline.module.css'
 
@@ -38,8 +38,8 @@ export default function Timeline({ entries }: TimelineProps) {
             style={{
               display: 'flex',
               justifyContent: isEven ? 'flex-end' : 'flex-start',
-              paddingRight: isEven ? '50%' : 0,
-              paddingLeft: isEven ? 0 : '50%',
+              paddingRight: isEven ? 'calc(50% + 2rem)' : 0,
+              paddingLeft: isEven ? 0 : 'calc(50% + 2rem)',
               position: 'relative',
               marginBottom: '3rem',
             }}
@@ -66,6 +66,7 @@ export default function Timeline({ entries }: TimelineProps) {
               title={entry.title}
               description={entry.description}
               position={position}
+              skills={entry.skills}
               links={entry.links}
             />
           </div>

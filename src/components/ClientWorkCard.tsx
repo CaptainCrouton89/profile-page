@@ -33,7 +33,7 @@ export function ClientWorkCard({
         border: "var(--border-width) solid var(--color-black)",
         boxShadow: "6px 6px 0 var(--color-black)",
         padding: featured ? "var(--space-xl)" : "var(--space-lg)",
-        background: "var(--color-background)",
+        background: "var(--color-surface)",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "translate(3px, 3px)"
@@ -53,7 +53,7 @@ export function ClientWorkCard({
           <h3
             className="uppercase font-black"
             style={{
-              fontSize: featured ? "var(--font-size-2xl)" : "var(--font-size-lg)",
+              fontSize: "var(--font-size-2xl)",
               color: "var(--color-white)",
               marginBottom: subtitle ? "var(--space-xs)" : "0",
             }}

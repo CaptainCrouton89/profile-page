@@ -54,7 +54,7 @@ export default function ContactPage() {
             border: "var(--border-width) solid var(--color-black)",
             boxShadow: "6px 6px 0 var(--color-black)",
             padding: "var(--space-xl)",
-            background: "var(--color-background)",
+            background: "var(--color-surface)",
           }}
         >
           <ContactForm />
@@ -81,7 +81,7 @@ export default function ContactPage() {
                 border: "var(--border-width) solid var(--color-black)",
                 boxShadow: "4px 4px 0 var(--color-black)",
                 padding: "var(--space-lg)",
-                background: "var(--color-background)",
+                background: "var(--color-surface)",
               }}
             >
               <div
@@ -134,7 +134,7 @@ export default function ContactPage() {
                 border: "var(--border-width) solid var(--color-black)",
                 boxShadow: "4px 4px 0 var(--color-black)",
                 padding: "var(--space-lg)",
-                background: "var(--color-background)",
+                background: "var(--color-surface)",
               }}
             >
               <div
@@ -189,7 +189,7 @@ export default function ContactPage() {
                 border: "var(--border-width) solid var(--color-black)",
                 boxShadow: "4px 4px 0 var(--color-black)",
                 padding: "var(--space-lg)",
-                background: "var(--color-background)",
+                background: "var(--color-surface)",
               }}
             >
               <div
@@ -244,7 +244,7 @@ export default function ContactPage() {
                 border: "var(--border-width) solid var(--color-black)",
                 boxShadow: "4px 4px 0 var(--color-black)",
                 padding: "var(--space-lg)",
-                background: "var(--color-background)",
+                background: "var(--color-surface)",
               }}
             >
               <div
@@ -315,7 +315,7 @@ export default function ContactPage() {
           border: "var(--border-width) solid var(--color-black)",
           boxShadow: "6px 6px 0 var(--color-black)",
           padding: "var(--space-xl)",
-          background: "var(--color-background)",
+          background: "var(--color-surface)",
         }}
       >
         <h2
