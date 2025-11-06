@@ -47,7 +47,7 @@ export function ClientWorkCard({
       {/* Title and Timeline */}
       <div
         className="flex flex-col md:flex-row md:justify-between md:items-start"
-        style={{ gap: "var(--space-sm)", marginBottom: "var(--space-md)" }}
+        style={{ gap: "var(--space-sm)", marginBottom: "var(--space-lg)" }}
       >
         <div>
           <h3
@@ -64,8 +64,9 @@ export function ClientWorkCard({
             <p
               className="uppercase"
               style={{
-                fontSize: "var(--font-size-sm)",
+                fontSize: "var(--font-size-md)",
                 color: "var(--color-gray-light)",
+                fontWeight: "bold",
               }}
             >
               {subtitle}
@@ -84,46 +85,40 @@ export function ClientWorkCard({
         </div>
       </div>
 
+      {/* Metrics */}
+      {metrics.length > 0 && (
+        <div
+          style={{
+            fontSize: "var(--font-size-sm)",
+            color: "var(--color-white)",
+            fontWeight: "bold",
+            marginBottom: "var(--space-md)",
+            borderTop: "2px solid var(--color-gray-dark)",
+            borderBottom: "2px solid var(--color-gray-dark)",
+            padding: "var(--space-sm) 0",
+          }}
+        >
+          {metrics.join(" | ")}
+        </div>
+      )}
+
       {/* Description */}
       <p
         style={{
           fontSize: "var(--font-size-md)",
           color: "var(--color-white)",
           lineHeight: "1.6",
-          marginBottom: metrics.length > 0 ? "var(--space-lg)" : "var(--space-md)",
+          marginBottom: "var(--space-lg)",
         }}
       >
         {description}
       </p>
 
-      {/* Metrics */}
-      {metrics.length > 0 && (
-        <div
-          className="flex flex-wrap"
-          style={{
-            gap: "var(--space-md)",
-            marginBottom: "var(--space-md)",
-          }}
-        >
-          {metrics.map((metric, index) => (
-            <div
-              key={index}
-              style={{
-                fontSize: "var(--font-size-sm)",
-                color: "var(--color-primary)",
-                fontWeight: "bold",
-              }}
-            >
-              {metric}
-            </div>
-          ))}
-        </div>
-      )}
-
       {/* Tech Stack */}
       <div
-        className="flex flex-wrap"
         style={{
+          display: "flex",
+          flexWrap: "wrap",
           gap: "var(--space-sm)",
           marginBottom: link ? "var(--space-lg)" : "0",
         }}
@@ -135,9 +130,9 @@ export function ClientWorkCard({
             style={{
               fontSize: "var(--font-size-xs)",
               padding: "var(--space-xs) var(--space-sm)",
-              background: "transparent",
-              border: "2px solid var(--color-gray-mid)",
-              color: "var(--color-white)",
+              background: "var(--color-primary)",
+              color: "var(--color-black)",
+              border: "2px solid var(--color-black)",
               fontWeight: "bold",
             }}
           >

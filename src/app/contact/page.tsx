@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export default function ContactPage() {
   return (
@@ -94,20 +95,11 @@ export default function ContactPage() {
               >
                 rhyneer.silas@gmail.com
               </p>
-              <a
-                href="mailto:rhyneer.silas@gmail.com"
-                className="uppercase font-bold transition-all duration-150 inline-block"
-                style={{
-                  fontSize: "var(--font-size-sm)",
-                  padding: "var(--space-sm) var(--space-md)",
-                  background: "var(--color-white)",
-                  color: "var(--color-black)",
-                  border: "2px solid var(--color-black)",
-                  textDecoration: "none",
-                }}
-              >
-                Email Me →
-              </a>
+              <Button variant="secondary" size="sm" asChild>
+                <a href="mailto:rhyneer.silas@gmail.com">
+                  Email Me →
+                </a>
+              </Button>
             </div>
 
             {/* LinkedIn */}
@@ -147,22 +139,15 @@ export default function ContactPage() {
               >
                 linkedin.com/in/silas-rhyneer
               </p>
-              <a
-                href="https://linkedin.com/in/silas-rhyneer"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="uppercase font-bold transition-all duration-150 inline-block"
-                style={{
-                  fontSize: "var(--font-size-sm)",
-                  padding: "var(--space-sm) var(--space-md)",
-                  background: "var(--color-white)",
-                  color: "var(--color-black)",
-                  border: "2px solid var(--color-black)",
-                  textDecoration: "none",
-                }}
-              >
-                Visit Profile →
-              </a>
+              <Button variant="secondary" size="sm" asChild>
+                <a
+                  href="https://linkedin.com/in/silas-rhyneer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit Profile →
+                </a>
+              </Button>
             </div>
 
             {/* GitHub */}
@@ -202,22 +187,15 @@ export default function ContactPage() {
               >
                 github.com/CaptainCrouton89
               </p>
-              <a
-                href="https://github.com/CaptainCrouton89"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="uppercase font-bold transition-all duration-150 inline-block"
-                style={{
-                  fontSize: "var(--font-size-sm)",
-                  padding: "var(--space-sm) var(--space-md)",
-                  background: "var(--color-white)",
-                  color: "var(--color-black)",
-                  border: "2px solid var(--color-black)",
-                  textDecoration: "none",
-                }}
-              >
-                View Repos →
-              </a>
+              <Button variant="secondary" size="sm" asChild>
+                <a
+                  href="https://github.com/CaptainCrouton89"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Repos →
+                </a>
+              </Button>
             </div>
           </div>
       </div>
