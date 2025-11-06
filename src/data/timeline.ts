@@ -25,9 +25,9 @@ export const timelineEntries: TimelineEntry[] = [
   {
     id: "2025-odapt",
     date: "~1 Month (2025)",
-    title: "ODAPT (YC W25) - Frontend Architecture Overhaul",
+    title: "Odapt (YC X25) - Frontend Architecture Overhaul",
     description:
-      "Founding Engineer for Y Combinator W25 startup. Migrated 10,000+ lines from vanilla JS to TypeScript + Next.js. Built recursive iframe architecture for AI-generated, self-modifying UIs.",
+      "Founding Engineer for Y Combinator X25 startup. Migrated 10,000+ lines from vanilla JS to TypeScript + Next.js. Built recursive iframe architecture for AI-generated, self-modifying UIs.",
     skills: ["TypeScript", "Next.js 14", "React 18", "Zod", "Runtime Validation"],
     links: [{ label: "View Client Work", href: "/client-work" }],
   },

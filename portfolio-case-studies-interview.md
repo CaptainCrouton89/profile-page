@@ -15,7 +15,7 @@
 
 ### Client Work Page (separate timeline/abbreviated):
 - CompozeLabs (primary feature)
-- ODAPT (YC W25)
+- Odapt (YC X25)
 - Cancer Education Platform (C0)
 - Crypto Trading Dashboard
 - Humanity's Voice
@@ -434,7 +434,7 @@ Answer: We got around this by having observer agents. Observer agents were looki
 - Novel observer pattern for voice AI
 - Real-time coaching with rubric-based scoring
 
-### 2. ODAPT (YC W25) - Frontend Architecture Overhaul
+### 2. Odapt (YC X25) - Frontend Architecture Overhaul
 
 **Company:** Y Combinator Winter 2025 startup
 **Role:** Founding Engineer
@@ -728,7 +728,7 @@ Answer: "I'm a huge game design aficionado. I thought a lot. I spent a lot of ti
 **Quantifiable Impact:**
 - Co-GM: 1,500+ users, 50+ paying subscribers
 - CompozeLabs: 25% improvement in pass-rates, 67% faster delivery
-- ODAPT: 45% performance gain, 60% maintainability increase, 35% fewer defects
+- Odapt: 45% performance gain, 60% maintainability increase, 35% fewer defects
 - Crypto Dashboard: 95% time-to-insight reduction, $2.3M annual yield capture
 - Mystica: 50% token reduction, 30% cost savings
 

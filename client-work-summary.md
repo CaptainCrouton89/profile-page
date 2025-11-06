@@ -2,7 +2,7 @@
 
 ## Consulting Clients (Rhyneer Consulting LLC)
 
-### 1. ODAPT (YC W25)
+### 1. Odapt (YC X25)
 **Duration:** ~1 month (2025)
 **Type:** AI web app development (Lovable competitor)
 **Role:** Contractor (Frontend overhaul)
@@ -192,14 +192,14 @@ E-commerce web application for hearing aid company. Worked in massive enterprise
 - Concord USA: 2+ years, 2 major enterprise projects
 
 **Impact Metrics:**
-- ODAPT: 45% performance improvement, 60% maintainability increase
+- Odapt: 45% performance improvement, 60% maintainability increase
 - CompozeLabs: 25% sales improvement, 67% faster than estimated delivery
 - Crypto Dashboard: $20M portfolio under management
 - Timesheet Platform: 500 users, 2,000 timesheets/month
 - Health Tech: 5,000+ employee organization
 
 **Technical Breadth:**
-- AI/LLM Integration (ODAPT, CompozeLabs, Mimetic)
+- AI/LLM Integration (Odapt, CompozeLabs, Mimetic)
 - Healthcare (Cancer platform, health tech company)
 - Fintech/Crypto (Trading dashboard)
 - Enterprise (Timesheet platform, health tech)

@@ -89,8 +89,8 @@ export default function ClientWorkPage() {
 
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-xl)" }}>
           <ClientWorkCard
-            title="ODAPT"
-            subtitle="YC W25 - AI Application Builder"
+            title="Odapt"
+            subtitle="YC X25 - AI Application Builder"
             timeline="~1 Month (2025)"
             description="Frontend architecture overhaul for AI-powered application builder (Lovable competitor). Migrated 10,000+ lines from vanilla JavaScript to TypeScript + Next.js with recursive iframe architecture where AI generates and modifies its own running interface in real-time."
             metrics={[

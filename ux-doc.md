@@ -226,7 +226,7 @@ Layout: Timeline-style or sectioned list
 │ CONSULTING CLIENTS (Rhyneer Consulting LLC)           │
 └────────────────────────────────────────────────────────┘
 
-├─ ODAPT (YC W25) ──────────────────────────────────────┤
+├─ ODAPT (YC X25) ──────────────────────────────────────┤
 │  Frontend Architecture Overhaul | ~1 month (2025)     │
 │  Refactored 10,000+ lines to TypeScript + Next.js     │
 │  • 45% performance improvement                         │
@@ -624,7 +624,7 @@ Layout: Vertical timeline with alternating sides (mobile: left-aligned)
     │ Selective consulting + seeking   │
     │ full-time senior role            │
     │                                  │
-    │ [ODAPT (YC W25)] [Mimetic]       │
+    │ [Odapt (YC X25)] [Mimetic]       │
     │ [See Client Work →]              │
     └──────────────────────────────────┘
                         │
