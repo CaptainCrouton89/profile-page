@@ -49,6 +49,17 @@ function ChatInput({
           disabled={disabled}
           placeholder={placeholder}
           className="flex-1"
+          style={{
+            border: "3px solid var(--color-primary-dark)",
+            transition: "all 0.2s ease",
+            boxShadow: "6px 6px 0 var(--color-black)",
+          }}
+          onFocus={(e) => {
+            e.currentTarget.style.borderColor = "var(--color-primary)";
+          }}
+          onBlur={(e) => {
+            e.currentTarget.style.borderColor = "var(--color-primary-dark)";
+          }}
         />
         <Button
           onClick={handleSubmit}
