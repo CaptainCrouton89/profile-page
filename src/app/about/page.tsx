@@ -1,9 +1,9 @@
 "use client"
 
-import { useState } from "react"
 import { AboutCard } from "@/components/AboutCard"
 import { TechBadge } from "@/components/TechBadge"
-import { Github, Linkedin, Mail, Phone } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react"
+import { useState } from "react"
 
 export default function AboutPage() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null)
