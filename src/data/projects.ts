@@ -30,7 +30,7 @@ export const projects: Record<string, Project> = {
   "co-gm": {
     title: "CO-GM",
     subtitle: "D&D CAMPAIGN MANAGEMENT PLATFORM",
-    heroImage: "/dnd-wallpaper.png",
+    heroImage: "/co-gm-wallpaper.png",
     metrics: {
       timeline: "Mar 2023 - Jul 2024",
       users: "1,500+ total users",
@@ -162,7 +162,7 @@ export const projects: Record<string, Project> = {
   "claude-code-ecosystem": {
     title: "CLAUDE CODE ECOSYSTEM",
     subtitle: "AI DEVELOPMENT WORKFLOW SYSTEM",
-    heroImage: "/claude-agents-wallpaper.png",
+    heroImage: "/claude-code-ecosystem-wallpaper.png",
     metrics: {
       githubStars: "478 stars (.claude)",
       mcpStars: "78 stars (MCP Boilerplate)",
@@ -230,7 +230,7 @@ export const projects: Record<string, Project> = {
   "mercury-notes": {
     title: "MERCURY NOTES",
     subtitle: "AI-POWERED NOTE-TAKING APP",
-    heroImage: "/ai-notes-wallpaper.png",
+    heroImage: "/mercury-notes-wallpaper.png",
     metrics: {
       techStack: "Next.js 15 + React 19",
       features: "Semantic tagging + RAG chat",
@@ -294,7 +294,7 @@ export const projects: Record<string, Project> = {
   "compozelabs": {
     title: "COMPOZELABS",
     subtitle: "AI VOICE SALES COACHING",
-    heroImage: "/sales-agent-wallpaper.png",
+    heroImage: "/voice.png",
     metrics: {
       timeline: "Jan 2025 - Feb 2025",
       delivery: "1 week (vs 4-6 week estimate)",

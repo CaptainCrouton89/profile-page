@@ -61,6 +61,7 @@ export default function ClientWorkPage() {
             label: "View Full Case Study",
           }}
           featured
+          image="/compozelabs.png"
         />
       </section>
 
@@ -100,6 +101,7 @@ export default function ClientWorkPage() {
               "Recursive iframe architecture with hot-reload stability",
             ]}
             techStack={["TypeScript", "Next.js 14", "React 18", "Dynamic Component Injection"]}
+            image="/odapt.png"
           />
 
           <ClientWorkCard
@@ -112,6 +114,7 @@ export default function ClientWorkPage() {
               "95% reduction in time-to-insight",
             ]}
             techStack={["Next.js", "TypeScript", "DeBank API", "Supabase", "PostgreSQL"]}
+            image="/crypto.png"
           />
 
           <ClientWorkCard
@@ -126,6 +129,7 @@ export default function ClientWorkPage() {
               "Intelligent web scraping with Firecrawl",
             ]}
             techStack={["React", "TypeScript", "FastAPI", "Firecrawl", "OpenAI", "JWT Auth"]}
+            image="/cancer.png"
           />
 
           <ClientWorkCard
@@ -140,6 +144,7 @@ export default function ClientWorkPage() {
               "Video cloning with style preservation",
             ]}
             techStack={["Claude Code", "Agent Coordination", "Replicate API", "11 Labs", "FFMPEG"]}
+            image="/video.png"
           />
         </div>
       </section>
@@ -180,6 +185,7 @@ export default function ClientWorkPage() {
               "Fixed critical authentication & authorization vulnerabilities",
             ]}
             techStack={["React", "Knockout.js", "Blazor", "C# .NET", "Microservices"]}
+            image="/healthtech.png"
           />
 
           <ClientWorkCard
@@ -193,6 +199,7 @@ export default function ClientWorkPage() {
               "Salesforce integration for seamless data sync",
             ]}
             techStack={["React", "PostgreSQL", "Spring Boot", "Salesforce API"]}
+            image="/timesheet.png"
           />
         </div>
       </section>

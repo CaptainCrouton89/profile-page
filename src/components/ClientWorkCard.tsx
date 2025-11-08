@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image"
+
 interface ClientWorkCardProps {
   title: string
   subtitle?: string
@@ -13,6 +15,7 @@ interface ClientWorkCardProps {
     label: string
   }
   featured?: boolean
+  image?: string
 }
 
 export function ClientWorkCard({
@@ -25,6 +28,7 @@ export function ClientWorkCard({
   techStack,
   link,
   featured = false,
+  image,
 }: ClientWorkCardProps) {
   return (
     <div
@@ -34,6 +38,9 @@ export function ClientWorkCard({
         boxShadow: "6px 6px 0 var(--color-black)",
         padding: featured ? "var(--space-xl)" : "var(--space-lg)",
         background: "var(--color-surface)",
+        display: image ? "flex" : "block",
+        gap: image ? "var(--space-xl)" : "0",
+        alignItems: image ? "stretch" : "normal",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "translate(3px, 3px)"
@@ -44,6 +51,7 @@ export function ClientWorkCard({
         e.currentTarget.style.boxShadow = "6px 6px 0 var(--color-black)"
       }}
     >
+      <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
       {/* Title and Timeline */}
       <div
         className="flex flex-col md:flex-row md:justify-between md:items-start"
@@ -166,6 +174,32 @@ export function ClientWorkCard({
         >
           {link.label} →
         </a>
+      )}
+      </div>
+
+      {/* Image */}
+      {image && (
+        <div
+          style={{
+            width: "300px",
+            height: "300px",
+            minWidth: "300px",
+            minHeight: "300px",
+            position: "relative",
+            flexShrink: 0,
+            border: "var(--border-width) solid var(--color-black)",
+            boxShadow: "6px 6px 0 var(--color-black)",
+            overflow: "hidden",
+            alignSelf: "center",
+          }}
+        >
+          <Image
+            src={image}
+            alt={title}
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </div>
       )}
     </div>
   )

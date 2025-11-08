@@ -66,7 +66,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         <div
           style={{
             width: "100%",
-            height: "400px",
+            height: "450px",
             position: "relative",
             border: "var(--border-width) solid var(--color-black)",
             boxShadow: "6px 6px 0 var(--color-black)",
